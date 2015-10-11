@@ -1,5 +1,6 @@
 <?php 
 
+error_reporting(E_ALL ^ E_DEPRECATED);
 header("Content-Type: text/html; Charset=UTF-8");
 date_default_timezone_set('America/Mexico_City');
 $fechaRegCap = date("Y-m-d" . " " . "g:i:s a");
@@ -25,19 +26,33 @@ if (isset($_POST['btn1'])) {
 
 		if (isset($_POST['txtNom']) && !empty($_POST['txtNom'])) {
 
-			$txtNom = $_POST['txtNom'];
-			$txtDir = $_POST['txtDir'];
-			$txtTel = $_POST['txtTel'];
-			$txtFec = $_POST['txtFec'];
+			$con = new SQLite3("../data/tienda.db") or die("Problemas para conectar");
+			$csImp = $con -> query("SELECT SUM(importe) FROM prendasTMP");
+			$resImp = $csImp -> fetchArray();
+			$totCImp = $resImp[0];
+
+			if ($totCImp > 0) {
+
+				$txtNom = $_POST['txtNom'];
+				$txtDir = $_POST['txtDir'];
+				$txtTel = $_POST['txtTel'];
+				$txtFec = $_POST['txtFec'];
+					
+				$con = new SQLite3("../data/tienda.db") or die("Problemas para conectar");
+				$csTotTick = $con -> query("SELECT folio, SUM(importe) FROM prendasTMP");
+				$resTotTick = $csTotTick -> fetchArray();
+				$impTotal = $resTotTick[1];
+				$noTick = $resTotTick[0];
+				$con -> close();
+				
+			}else{
+				echo "<script> alert('Faltan Prenda!'); </script>";
+				echo "<script> window.location='caja.php'; </script>";
+			}
+
+				
 
 			
-				
-			$con = new SQLite3("../data/tienda.db") or die("Problemas para conectar");
-			$csTotTick = $con -> query("SELECT folio, SUM(importe) FROM prendasTMP");
-			$resTotTick = $csTotTick -> fetchArray();
-			$impTotal = $resTotTick[1];
-			$noTick = $resTotTick[0];
-			$con -> close();
 		}else{
 			echo "<script> alert('Faltan Nombre en la nota!'); </script>";
 			echo "<script> window.location='caja.php'; </script>";
@@ -124,7 +139,7 @@ if (isset($_POST['btn1'])) {
 				<br>
 				Fecha Ticket: <?php  echo $fechaRegCap; ?> 
 				<br>
-				Fecha Impre: <?php  echo $txtFec; ?>
+				Fecha Entrega: <?php  echo $txtFec; ?>
 			</p>
 			<p class="txtTicketCod">
 				<?php echo $noTick; ?>

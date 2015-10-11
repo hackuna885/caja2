@@ -1,3 +1,11 @@
+<?php 
+
+error_reporting(E_ALL ^ E_DEPRECATED);
+header("Content-Type: text/html; Charset=UTF-8");
+date_default_timezone_set('America/Mexico_City');
+
+ ?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -123,7 +131,7 @@ echo '
 		<br>
 		<input type="text" class="inLar" name="txtDir" placeholder="Dirección..."/>
 		<input type="text" class="inCor" name="txtTel" placeholder="Teléfono..."/>
-		<input type="date" class="inCor" name="txtFec" placeholder="Fecha..."/>
+		<input type="date" class="inCor" name="txtFec" placeholder="Fecha..." min="<?php echo date("Y-m-d"); ?>" max="2018-12-31" value="<?php echo date("Y-m-d"); ?>"/>
 		</form>
 	</div>
 	</div>
