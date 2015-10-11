@@ -1,0 +1,40 @@
+@font-face{
+	font-family:"code128";
+	src: url(fonts/code128.ttf);
+}
+.pTicket{
+	width: 100%;
+	height: 100%;
+	text-align: center;
+}
+.ticket1{
+	margin: 0px auto;
+	width: 300px;
+	height: auto;
+	border: 1px solid;
+}
+.txtTicket{
+	padding: 0px 10px;
+	font-family: monospace;
+}
+.txtTicketAIz{
+	padding: 0px 10px;
+	font-family: monospace;
+	text-align: left;
+}
+.txtTicketCod{
+	font-size: 40px;
+	font-family: "code128";
+}
+.centTab{
+	margin: 0px auto;
+}
+.tabTicket{
+	padding: 0px 3px;
+	font-family: monospace;
+}
+.tabTicketDer{
+	text-align: right;
+	padding: 0px 3px;
+	font-family: monospace;
+}

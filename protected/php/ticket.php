@@ -1,0 +1,142 @@
+<?php 
+
+header("Content-Type: text/html; Charset=UTF-8");
+date_default_timezone_set('America/Mexico_City');
+$fechaRegCap = date("Y-m-d" . " " . "g:i:s a");
+
+		$txtNom = "";
+		$txtDir = "";
+		$txtTel = "";
+		$txtFec = "";
+
+
+if (isset($_POST['btn1'])) {
+	$btn = $_POST['btn1'];
+
+	if ($btn == "CANCELAR") {
+		$con = new SQLite3("../data/tienda.db") or die("Problemas para conectar");
+		$eli = $con -> query("DELETE FROM prendasTMP ");
+		$con -> close();
+		
+		echo "<script> alert('Venta CANCELADA!');</script>";
+		echo "<script> window.location='caja.php';</script>";
+	}
+	if ($btn == "TICKET") {
+
+		if (isset($_POST['txtNom']) && !empty($_POST['txtNom'])) {
+
+			$txtNom = $_POST['txtNom'];
+			$txtDir = $_POST['txtDir'];
+			$txtTel = $_POST['txtTel'];
+			$txtFec = $_POST['txtFec'];
+
+			
+				
+			$con = new SQLite3("../data/tienda.db") or die("Problemas para conectar");
+			$csTotTick = $con -> query("SELECT folio, SUM(importe) FROM prendasTMP");
+			$resTotTick = $csTotTick -> fetchArray();
+			$impTotal = $resTotTick[1];
+			$noTick = $resTotTick[0];
+			$con -> close();
+		}else{
+			echo "<script> alert('Faltan Nombre en la nota!'); </script>";
+			echo "<script> window.location='caja.php'; </script>";
+		}
+
+
+
+	}
+}else{
+			
+			echo "<script> window.location='caja.php'; </script>";
+		}
+
+
+ ?>
+
+
+ <!DOCTYPE html>
+ <html lang="es">
+ <head>
+ 	<meta charset="UTF-8">
+ 	<?php include("../../include/style.inc"); ?>
+ 	<link rel="stylesheet" href="../../css/pTicket.css">
+ 	<title>Ticket</title>
+ </head>
+ <body>
+ 	<div class="main_wrapper">
+	<div class="cUno">
+	<?php include("../../include/menu.inc"); ?>
+	<div class="pTicket">
+		<div class="ticket1">
+			<img class="imglogo" src="../../img/logo.png" alt="">
+			<p class="txtTicket">
+				Mariano Escobedo #20 Col. Zaragoza C.P. 54457. Nicolás romero. Edo-Méx. Tel: 1660-3794
+				<br>
+			</p>
+			
+			<table class="centTab">
+					<tr>
+						<td class="tabTicket">Folio</td>
+						<td class="tabTicket">Cod. Arti</td>
+						<td class="tabTicket">Prenda</td>
+						<td class="tabTicket">Monto</td>
+					</tr>
+				<?php 
+
+					$con = new SQLite3("../data/tienda.db") or die("Problemas para conectar");
+					$cs = $con -> query("SELECT * FROM prendasTMP");
+					while ($res = $cs -> fetchArray()) {
+
+						$codArt = $res[0];
+						$prenda = $res[1];
+						$monto = $res[2];
+						$folio = $res[3];
+
+						echo '
+							
+
+							<tr>
+								<td class="tabTicket">'.$folio.'</td>
+								<td class="tabTicket">'.$codArt.'</td>
+								<td class="tabTicketDer">'.$prenda.'</td>
+								<td class="tabTicket">$'.$monto.'</td>
+							</tr>
+
+						';
+					}
+					$con -> close();
+				 ?>
+				 <tr>
+						<td class="tabTicket"></td>
+						<td class="tabTicket"></td>
+						<td class="tabTicketDer">Total: </td>
+						<td class="tabTicket">$<?php echo $impTotal; ?></td>
+					</tr>
+			</table>
+			
+			<p class="txtTicketAIz">
+				Nombre: <?php  echo $txtNom; ?>
+				<br>
+				Dirección: <?php  echo $txtDir; ?>
+				<br>
+				Teléfono: <?php  echo $txtTel; ?>
+				<br>
+				Fecha Ticket: <?php  echo $fechaRegCap; ?> 
+				<br>
+				Fecha Impre: <?php  echo $txtFec; ?>
+			</p>
+			<p class="txtTicketCod">
+				<?php echo $noTick; ?>
+			</p>
+			<p class="txtTicket">
+				No. Ticket: <?php echo $noTick; ?>
+			</p>
+			<br>
+			<br>
+		</div>
+	</div>
+	</div>
+	</div>
+ </body>
+ </html>
