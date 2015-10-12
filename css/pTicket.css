@@ -3,12 +3,18 @@
 	src: url(fonts/code128.ttf);
 }
 .pTicket{
+	position: absolute;
 	width: 100%;
-	height: 100%;
+	height: auto;
 	text-align: center;
 }
-.ticket1{
+.c1Centro{
+	width: 602px;
+	text-align: center;
 	margin: 0px auto;
+}
+.ticket1{
+	float: left;
 	width: 300px;
 	height: auto;
 	border: 1px solid;
@@ -37,4 +43,21 @@
 	text-align: right;
 	padding: 0px 3px;
 	font-family: monospace;
+}
+.cForm{
+	float: left;
+	padding: 0px 10px 0px 10px;
+	width: 280px;
+	height: 422px;
+	padding-top: 50px;
+}
+.inRegC{
+	width: 200px;
+	height: 40px;
+	padding: 0px 10px;
+	margin: 0px 0px;
+	border: 1px solid;
+	border-color: #003366;
+	-webkit-border-radius: 5px;
+	        border-radius: 5px;
 }

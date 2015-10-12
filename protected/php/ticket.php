@@ -1,5 +1,6 @@
 <?php 
 
+session_start();
 error_reporting(E_ALL ^ E_DEPRECATED);
 header("Content-Type: text/html; Charset=UTF-8");
 date_default_timezone_set('America/Mexico_City');
@@ -43,10 +44,11 @@ if (isset($_POST['btn1'])) {
 				$resTotTick = $csTotTick -> fetchArray();
 				$impTotal = $resTotTick[1];
 				$noTick = $resTotTick[0];
+				$_SESSION['x'] = $impTotal;
 				$con -> close();
 				
 			}else{
-				echo "<script> alert('Faltan Prenda!'); </script>";
+				echo "<script> alert('Falta Prenda!'); </script>";
 				echo "<script> window.location='caja.php'; </script>";
 			}
 
@@ -76,6 +78,31 @@ if (isset($_POST['btn1'])) {
  	<meta charset="UTF-8">
  	<?php include("../../include/style.inc"); ?>
  	<link rel="stylesheet" href="../../css/pTicket.css">
+ 	<script type="text/javascript">
+	function ejecutarAjax(){
+		var ajax;
+		if (window.XMLHttpRequest) {
+			ajax = new XMLHttpRequest();
+		}else{
+			ajax = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+
+		var url = "calcula.php";
+		var imp = document.getElementById("importe").value;
+		var acu = document.getElementById("acuenta").value;
+		var valores = "importe="+imp+"&acuenta="+acu;
+
+		ajax.open("POST",url,true);
+		ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+		ajax.onreadystatechange=function(){
+			if (ajax.readyState==4 && ajax.status==200) {
+				document.getElementById("resCambio").innerHTML = ajax.responseText;
+			}
+		}
+
+		ajax.send(valores);
+	}
+	</script>
  	<title>Ticket</title>
  </head>
  <body>
@@ -83,6 +110,7 @@ if (isset($_POST['btn1'])) {
 	<div class="cUno">
 	<?php include("../../include/menu.inc"); ?>
 	<div class="pTicket">
+	<div class="c1Centro">
 		<div class="ticket1">
 			<img class="imglogo" src="../../img/logo.png" alt="">
 			<p class="txtTicket">
@@ -150,6 +178,28 @@ if (isset($_POST['btn1'])) {
 			<br>
 			<br>
 		</div>
+		<div class="cForm">
+			<form action="impTick.php" method="post">
+				<p>Total a pagar: $<?php echo $impTotal; ?></p>
+				<br>
+				<input class="inRegC" type="number" id="importe" name="txtImpRec" placeholder="Importe Recibido $$$..." onkeyup="ejecutarAjax()" />
+				<br>
+				<br>
+				<input class="inRegC" type="number" id="acuenta" name="txtACuent" placeholder="A cuenta $$$..." onkeyup="ejecutarAjax()"/>
+				<br>
+				<br>
+				<div id="resCambio">
+				Cambio: $
+				<br>
+				Restante: $
+				</div>
+				<br>
+				<input class="btnAct" id="ticket" type="submit" value="Imprimir"/>
+				<br>
+				<button class="btnAct" id="cancel" type="button" onclick="window.location='caja.php';">Regresar..</button>
+			</form>
+		</div>
+	</div>
 	</div>
 	</div>
 	</div>
