@@ -4,7 +4,7 @@
 }
 .pTicket{
 	position: absolute;
-	width: 100%;
+	width: 987px;
 	height: auto;
 	text-align: center;
 }
@@ -60,4 +60,9 @@
 	border-color: #003366;
 	-webkit-border-radius: 5px;
 	        border-radius: 5px;
+}
+.cajaBold{
+	font-family: "Gotham-Bold";
+	font-size: 18px;
+	color: #003366;
 }
