@@ -1,0 +1,52 @@
+@font-face{
+	font-family:"code128";
+	src: url(fonts/code128.ttf);
+}
+*{
+	margin: 0px;
+	padding: 0px;
+	font-family: monospace;
+}
+html, body{
+	height: 100%;
+}
+.main_wrapper{
+	min-height: 100%;
+	position: relative;
+}
+.tickImpre{
+	text-align: center;
+	width: 260px;
+	border: 1px solid;
+}
+.imglogo{
+	width: 120px;
+}
+.imptxt{
+	padding: 0px 10px;
+}
+.centTab{
+	margin: 0px auto;
+}
+.tabTicket{
+	padding: 0px 3px;
+	font-family: monospace;
+}
+.tabTicketDer{
+	text-align: right;
+	padding: 0px 3px;
+	font-family: monospace;
+}
+.txtTicketAIz{
+	padding: 0px 10px;
+	font-family: monospace;
+	text-align: left;
+}
+.txtTicketCod{
+	font-size: 40px;
+	font-family: "code128";
+}
+.pChico{
+	margin: 0px 10px;
+	font-size: 9px;
+}

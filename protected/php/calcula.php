@@ -4,6 +4,10 @@ session_start();
 
 $importe = $_POST['importe'];
 $acuenta = $_POST['acuenta'];
+
+$_SESSION['importe'] = $importe;
+$_SESSION['acuenta'] = $acuenta;
+
 $x = $_SESSION['x'];
 
 
@@ -23,5 +27,7 @@ if (isset($acuenta) && !empty($acuenta)) {
 
 echo "Cambio: $" . $calcula . "<br>";
 echo "Restante: $".$restante. "<br>";
+echo '<input type="text" name="txtCambio" value="'.$calcula.'" hidden/>';
+echo '<input type="text" name="txtRestan" value="'.$restante.'" hidden/>';
 
 ?>

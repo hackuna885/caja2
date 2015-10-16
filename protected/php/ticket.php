@@ -4,7 +4,7 @@ session_start();
 error_reporting(E_ALL ^ E_DEPRECATED);
 header("Content-Type: text/html; Charset=UTF-8");
 date_default_timezone_set('America/Mexico_City');
-$fechaRegCap = date("Y-m-d" . " " . "g:i:s a");
+$fechaRegCap = date("Y-m-d" . " " . "g:i a");
 
 		$txtNom = "";
 		$txtDir = "";
@@ -38,12 +38,18 @@ if (isset($_POST['btn1'])) {
 				$txtDir = $_POST['txtDir'];
 				$txtTel = $_POST['txtTel'];
 				$txtFec = $_POST['txtFec'];
+
+				$_SESSION['txtNom'] = $txtNom;
+				$_SESSION['txtDir'] = $txtDir;
+				$_SESSION['txtTel'] = $txtTel;
+				$_SESSION['txtFec'] = $txtFec;
 					
 				$con = new SQLite3("../data/tienda.db") or die("Problemas para conectar");
 				$csTotTick = $con -> query("SELECT folio, SUM(importe) FROM prendasTMP");
 				$resTotTick = $csTotTick -> fetchArray();
 				$impTotal = $resTotTick[1];
 				$noTick = $resTotTick[0];
+				$_SESSION['noTick'] = $noTick;
 				$_SESSION['x'] = $impTotal;
 				$con -> close();
 				
@@ -114,8 +120,10 @@ if (isset($_POST['btn1'])) {
 		<div class="ticket1">
 			<img class="imglogo" src="../../img/logo.png" alt="">
 			<p class="txtTicket">
-				Mariano Escobedo #20 Col. Zaragoza C.P. 54457. Nicolás romero. Edo-Méx. Tel: 1660-3794
-				<br>
+				Mariano Escobedo #20 Col. Zaragoza C.P. 54457. Nicolás Romero. Edo-Méx. Tel: 1660-3794
+			</p>
+			<p class="pChico">
+			Horarios de Lunes a Viernes: 9:00 am. - 8:00 pm. Sábados y Domingos: 9:00 am. - 2:00 pm.
 			</p>
 			
 			<table class="centTab">
