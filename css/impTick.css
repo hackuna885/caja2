@@ -2,6 +2,14 @@
 	font-family:"code128";
 	src: url(fonts/code128.ttf);
 }
+@font-face{
+	font-family:"Gotham-Book";
+	src: url(fonts/Gotham-Book.otf);
+}
+@font-face{
+	font-family:"Gotham-Bold";
+	src: url(fonts/Gotham-Bold.otf);
+}
 *{
 	margin: 0px;
 	padding: 0px;
@@ -15,6 +23,7 @@ html, body{
 	position: relative;
 }
 .tickImpre{
+	float: left;
 	text-align: center;
 	width: 260px;
 	border: 1px solid;
@@ -23,10 +32,11 @@ html, body{
 	width: 120px;
 }
 .imptxt{
-	padding: 0px 10px;
+	padding: 0px 15px;
 }
 .centTab{
 	margin: 0px auto;
+	padding: 10px;
 }
 .tabTicket{
 	padding: 0px 3px;
@@ -38,7 +48,7 @@ html, body{
 	font-family: monospace;
 }
 .txtTicketAIz{
-	padding: 0px 10px;
+	padding: 0px 15px;
 	font-family: monospace;
 	text-align: left;
 }
@@ -47,6 +57,28 @@ html, body{
 	font-family: "code128";
 }
 .pChico{
-	margin: 0px 10px;
-	font-size: 9px;
+	margin: 0px 15px;
+}
+.botonera{
+	padding: 0px 10px;
+	width: 280px;
+	float: left;
+}
+.btnAct{
+	width: 100%;
+	height: 50px;
+	border: 0px solid;
+	-webkit-border-radius: 5px;
+	        border-radius: 5px;
+	margin-top: 5px;
+	line-height: 50px;
+	font-family: "Gotham-Bold";
+	font-size: 16px;
+	color: #FFF;
+}
+#ticket{
+	background-color: #003366;
+}
+#cancel{
+	background-color: #E91E63;
 }

@@ -16,9 +16,10 @@ $txtRestan = $_POST['txtRestan'];
 <head>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="../../css/impTick.css">
-	<title>Imprimir Ticket</title>
+	<link rel="stylesheet" href="../../css/impTick2.css" media="print">
+	<title>Ticket <?php echo $_SESSION['noTick']; ?></title>
 </head>
-<body>
+<body onload="window.print();">
 <div class="main_wrapper">
 	<div class="tickImpre">
 		<img class="imglogo" src="../../img/logo.png" alt="">
@@ -28,7 +29,6 @@ $txtRestan = $_POST['txtRestan'];
 		<p class="pChico">
 			Horarios de Lunes a Viernes: 9:00 am. - 8:00 pm. Sábados y Domingos: 9:00 am. - 2:00 pm.
 		</p>
-		<br>
 		<table class="centTab">
 			<tr>
 				<td class="tabTicket">Folio</td>
@@ -50,7 +50,7 @@ $txtRestan = $_POST['txtRestan'];
 							
 
 							<tr>
-								<td class="tabTicket">'.$folio.'</td>
+								<td class="tabTicketDer">'.$folio.'</td>
 								<td class="tabTicket">'.$codArt.'</td>
 								<td class="tabTicketDer">'.$prenda.'</td>
 								<td class="tabTicket">$'.$monto.'</td>
@@ -67,28 +67,29 @@ $txtRestan = $_POST['txtRestan'];
 					<td class="tabTicketDer">Total: </td>
 					<td class="tabTicket">$<?php echo $_SESSION['x']; ?></td>
 				</tr>
+				<br>
 				<tr>
+					<td class="tabTicket"></td>
 					<td class="tabTicketDer">Recibido:</td>
 					<td class="tabTicket">$<?php echo $_SESSION['importe']; ?></td>
 					<td class="tabTicket"></td>
-					<td class="tabTicket"></td>
 				</tr>
 				<tr>
+					<td class="tabTicket"></td>
 					<td class="tabTicketDer">A Cuenta:</td>
 					<td class="tabTicket">$<?php echo $_SESSION['acuenta']; ?></td>
 					<td class="tabTicket"></td>
-					<td class="tabTicket"></td>
 				</tr>
 				<tr>
+					<td class="tabTicket"></td>
 					<td class="tabTicketDer">Cambio:</td>
 					<td class="tabTicket">$<?php echo $txtCambio; ?></td>
 					<td class="tabTicket"></td>
-					<td class="tabTicket"></td>
 				</tr>
 				<tr>
+					<td class="tabTicket"></td>
 					<td class="tabTicketDer">Restante:</td>
 					<td class="tabTicket">$<?php echo $txtRestan; ?></td>
-					<td class="tabTicket"></td>
 					<td class="tabTicket"></td>
 				</tr>
 			</tr>
@@ -112,6 +113,11 @@ $txtRestan = $_POST['txtRestan'];
 			No. Ticket: <?php echo $_SESSION['noTick']; ?>
 		</p>
 		<br>
+	</div>
+	<div class="botonera">
+		<input class="btnAct" id="ticket" type='button' onclick='window.print();' value='Re-Imprimir' />
+		<br>
+		<input class="btnAct" id="cancel" type="submit" value="Terminar"/>
 	</div>
 </div>
 </body>
