@@ -6,8 +6,10 @@ header("Content-Type: text/html; Charset=UTF-8");
 date_default_timezone_set('America/Mexico_City');
 $fechaRegCap = date("Y-m-d" . " " . "g:i a");
 
+
 $txtCambio = $_POST['txtCambio'];
 $txtRestan = $_POST['txtRestan'];
+
 
  ?>
 

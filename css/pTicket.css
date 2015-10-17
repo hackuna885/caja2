@@ -55,6 +55,10 @@
 	padding-top: 50px;
 }
 .inRegC{
+	text-align: center;
+	font-family: "Gotham-Bold";
+	font-size: 18px;
+	color: #003366;
 	width: 200px;
 	height: 40px;
 	padding: 0px 10px;

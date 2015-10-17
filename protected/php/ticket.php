@@ -190,10 +190,10 @@ if (isset($_POST['btn1'])) {
 			<form action="impTick.php" method="post">
 				<p class="cajaBold">Total a pagar: $<?php echo $impTotal; ?></p>
 				<br>
-				<input class="inRegC" type="number" id="importe" name="txtImpRec" placeholder="Importe Recibido $$$..." onkeyup="ejecutarAjax()" />
+				<input class="inRegC" type="number" id="importe" name="txtImpRec" placeholder="Importe Recibido $$$.." onkeyup="ejecutarAjax()" required/>
 				<br>
 				<br>
-				<input class="inRegC" type="number" id="acuenta" name="txtACuent" placeholder="A cuenta $$$..." onkeyup="ejecutarAjax()"/>
+				<input class="inRegC" type="number" id="acuenta" name="txtACuent" placeholder="A cuenta $$$.." onkeyup="ejecutarAjax()"/>
 				<br>
 				<br>
 				<div id="resCambio" class="cajaBold">
