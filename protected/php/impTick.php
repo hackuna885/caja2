@@ -114,11 +114,20 @@ $txtRestan = $_POST['txtRestan'];
 		</p>
 		<br>
 	</div>
+	<form action="insert.php" method="post">
 	<div class="botonera">
 		<input class="btnAct" id="ticket" type='button' onclick='window.print();' value='Re-Imprimir' />
 		<br>
 		<input class="btnAct" id="cancel" type="submit" value="Terminar"/>
 	</div>
+	<input type="text" name="txtFolio" value="<?php echo $folio; ?>" hidden/>
+	<br>
+	<input type="text" name="txtCambio" value="<?php echo $txtCambio; ?>" hidden/>
+	<br>
+	<input type="text" name="txtRestan" value="<?php echo $txtRestan; ?>" hidden/>
+	<br>
+	<input type="text" name="txtFechaTick" value="<?php echo $fechaRegCap; ?>" hidden/>
+	</form>
 </div>
 </body>
 </html>

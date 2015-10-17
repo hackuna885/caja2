@@ -61,10 +61,11 @@ if ($res[1] > 0) {
 	$con -> close();
 
 	$con = new SQLite3("../data/tienda.db") or die("Problemas para conectar");
-	$csFolio = $con -> query("SELECT COUNT(numFolio), MAX(numFolio) FROM catFolio");
+	$csFolio = $con -> query("SELECT COUNT(numFolio), MAX(numFolio),fUsado FROM catFolio");
 	$resFolio = $csFolio -> fetchArray();
 		$countF = $resFolio[0];
 		$maxF = $resFolio[1];
+		$fUsado = $resFolio[2];
 	$con -> close();
 
 	if ($count == 0) {
@@ -72,14 +73,25 @@ if ($res[1] > 0) {
 			$idIns = "P0001";
 			$numFolio = "A00001";
 			$con = new SQLite3("../data/tienda.db") or die("Problemas para conectar");
-			$insertF = $con -> query("INSERT INTO catFolio (numFolio,fUsado) VALUES('$numFolio', 0)");
+			$insertF = $con -> query("INSERT INTO catFolio (numFolio,fUsado,fStatus) VALUES('$numFolio',0,0)");
 			$insert = $con -> query("INSERT INTO prendasTMP VALUES('$idIns','$res[0]','$res[1]','$numFolio')");
 			$con -> close();
 		}else{
-		$idIns = "P0001";
-		$con = new SQLite3("../data/tienda.db") or die("Problemas para conectar");
-		$insert = $con -> query("INSERT INTO prendasTMP VALUES('$idIns','$res[0]','$res[1]','$maxF')");
-		$con -> close();
+			if ($fUsado == 0) {
+				$idIns = "P0001";
+				$numFolio = $maxF;
+				$con = new SQLite3("../data/tienda.db") or die("Problemas para conectar");
+				$insert = $con -> query("INSERT INTO prendasTMP VALUES('$idIns','$res[0]','$res[1]','$numFolio')");
+				$con -> close();
+			}else{
+				$idIns = "P0001";
+				$numFolio = "A".substr((substr($maxF, 1) + 100001), 1);
+				$con = new SQLite3("../data/tienda.db") or die("Problemas para conectar");
+				$insertF = $con -> query("INSERT INTO catFolio (numFolio,fUsado,fStatus) VALUES('$numFolio',0,0)");
+				$insert = $con -> query("INSERT INTO prendasTMP VALUES('$idIns','$res[0]','$res[1]','$numFolio')");
+				$con -> close();
+			}
+		
 		}
 	}else{
 

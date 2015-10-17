@@ -122,7 +122,7 @@ if (isset($_POST['btn1'])) {
 			<p class="txtTicket">
 				Mariano Escobedo #20 Col. Zaragoza C.P. 54457. Nicolás Romero. Edo-Méx. Tel: 1660-3794
 			</p>
-			<p class="pChico">
+			<p class="txtTicket">
 			Horarios de Lunes a Viernes: 9:00 am. - 8:00 pm. Sábados y Domingos: 9:00 am. - 2:00 pm.
 			</p>
 			
