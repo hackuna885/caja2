@@ -1,6 +1,14 @@
-@font-face{
-	font-family:"Free 3 of 9";
-	src: url(fonts/free3of9.ttf);
+@font-face {
+    font-family: 'free_3_of_9regular';
+    src: url('fonts/code39/free3of9-webfont.eot');
+    src: url('fonts/code39/free3of9-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/code39/free3of9-webfont.woff2') format('woff2'),
+         url('fonts/code39/free3of9-webfont.woff') format('woff'),
+         url('fonts/code39/free3of9-webfont.ttf') format('truetype'),
+         url('fonts/code39/free3of9-webfont.svg#free_3_of_9regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
 }
 @font-face{
 	font-family:"Gotham-Book";
@@ -54,7 +62,7 @@ html, body{
 }
 .txtTicketCod{
 	font-size: 40px;
-	font-family: "Free 3 of 9";
+	font-family: 'free_3_of_9regular';
 }
 .pChico{
 	margin: 0px 15px;
