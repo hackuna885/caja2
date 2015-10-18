@@ -178,7 +178,7 @@ if (isset($_POST['btn1'])) {
 				Fecha Entrega: <?php  echo $txtFec; ?>
 			</p>
 			<p class="txtTicketCod">
-				<?php echo $noTick; ?>
+				<?php echo '*'.$noTick.'*'; ?>
 			</p>
 			<p class="txtTicket">
 				No. Ticket: <?php echo $noTick; ?>
