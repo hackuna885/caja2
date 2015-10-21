@@ -21,11 +21,28 @@
 	text-align: center;
 	margin: 0px auto;
 }
+.tituloEnt{
+	padding: 10px 0px;
+	color: #FFF;
+	background-color: #E91E63;
+	-webkit-border-radius: 3px;
+	        border-radius: 3px;
+}
 .ticket1{
 	float: left;
 	width: 300px;
 	height: auto;
 	border: 1px solid;
+}
+.cIzqUno{
+	float: left;
+	width: 300px;
+	height: auto;
+}
+.cDerUno{
+	float: right;
+	width: 300px;
+	height: auto;
 }
 .txtTicket{
 	padding: 0px 10px;

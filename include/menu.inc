@@ -6,7 +6,8 @@
 			<div class="cMenu">
 			<hgroup>
 				<nav>
-					<a href="#">Caja</a>
+					<a href="caja.php">Caja</a>
+					<a href="entrega.php">Entrega</a>
 					<a href="#">Catálogos</a>
 					<a href="#">Reportes</a>
 					<a href="#">Usuarios</a>

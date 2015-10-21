@@ -127,7 +127,7 @@ echo '
 	</div>
 	</div>
 	<div class="cDos">
-		<input type="text" class="inReg" name="txtNom" placeholder="Nombre..."/>
+		<input type="text" class="inReg" name="txtNom" placeholder="Nombre..." autofocus/>
 		<br>
 		<input type="text" class="inLar" name="txtDir" placeholder="Dirección..."/>
 		<input type="text" class="inCor" name="txtTel" placeholder="Teléfono..."/>
