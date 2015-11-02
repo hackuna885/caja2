@@ -130,7 +130,7 @@ echo '
 		<input type="text" class="inReg" name="txtNom" placeholder="Nombre..." autofocus/>
 		<br>
 		<input type="text" class="inLar" name="txtDir" placeholder="Dirección..."/>
-		<input type="text" class="inCor" name="txtTel" placeholder="Teléfono..."/>
+		<input type="tel" class="inCor" name="txtTel" placeholder="Teléfono..." maxlength="13" />
 		<input type="date" class="inCor" name="txtFec" placeholder="Fecha..." min="<?php echo date("Y-m-d"); ?>" max="2018-12-31" value="<?php echo date("Y-m-d"); ?>"/>
 		</form>
 	</div>

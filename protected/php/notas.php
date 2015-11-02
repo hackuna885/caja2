@@ -73,7 +73,7 @@ if ($res[1] > 0) {
 			$idIns = "P0001";
 			$numFolio = "A00001";
 			$con = new SQLite3("../data/tienda.db") or die("Problemas para conectar");
-			$insertF = $con -> query("INSERT INTO catFolio (numFolio,fUsado,fStatus) VALUES('$numFolio',0,0)");
+			$insertF = $con -> query("INSERT INTO catFolio (numFolio,fUsado,fStatus,fEntregado) VALUES('$numFolio',0,0,0)");
 			$insert = $con -> query("INSERT INTO prendasTMP VALUES('$idIns','$res[0]','$res[1]','$numFolio')");
 			$con -> close();
 		}else{
@@ -87,7 +87,7 @@ if ($res[1] > 0) {
 				$idIns = "P0001";
 				$numFolio = "A".substr((substr($maxF, 1) + 100001), 1);
 				$con = new SQLite3("../data/tienda.db") or die("Problemas para conectar");
-				$insertF = $con -> query("INSERT INTO catFolio (numFolio,fUsado,fStatus) VALUES('$numFolio',0,0)");
+				$insertF = $con -> query("INSERT INTO catFolio (numFolio,fUsado,fStatus,fEntregado) VALUES('$numFolio',0,0,0)");
 				$insert = $con -> query("INSERT INTO prendasTMP VALUES('$idIns','$res[0]','$res[1]','$numFolio')");
 				$con -> close();
 			}

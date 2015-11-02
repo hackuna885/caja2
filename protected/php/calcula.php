@@ -30,4 +30,5 @@ echo "Restante: $".$restante. "<br>";
 echo '<input type="text" name="txtCambio" value="'.$calcula.'" hidden/>';
 echo '<input type="text" name="txtRestan" value="'.$restante.'" hidden/>';
 
+
 ?>

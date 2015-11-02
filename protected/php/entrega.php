@@ -38,6 +38,30 @@ $fechaRegCap = date("Y-m-d" . " " . "g:i a");
  	}
  	</script>
  	<script>
+ 	function calcula(){
+		var ajax;
+		if (window.XMLHttpRequest) {
+			ajax = new XMLHttpRequest();
+		}else{
+			ajax = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+
+		var url = "calcula2.php";
+		var imp = document.getElementById("cImporte").value;
+		var valores = "cImporte="+imp;
+
+		ajax.open("POST",url,true);
+		ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+		ajax.onreadystatechange=function(){
+			if (ajax.readyState==4 && ajax.status==200) {
+				document.getElementById("resCambio").innerHTML = ajax.responseText;
+			}
+		}
+
+		ajax.send(valores);
+	}
+	</script>
+ 	<script>
  		function validateEnter(e) {
 		var key=e.keyCode || e.which;
 		if (key==13){ return true; } else { return false; }
@@ -64,7 +88,7 @@ $fechaRegCap = date("Y-m-d" . " " . "g:i a");
 			<br>
 			<h2>Código de Ticket</h2>
 			<br>
-			<input class="inRegC" type="text" id="txtBusTick" name="txtCodEnt" placeholder="Código de 6 dígitos" onkeyup="if(validateEnter(event) == true) { ejecutarAjax(); }" maxlength = "6" autofocus/>
+			<input class="inRegC" type="text" id="txtBusTick" name="txtCodEnt" placeholder="Código de 6 dígitos" onkeyup="if(validateEnter(event) == true) { ejecutarAjax(); }" maxlength="6" autofocus/>
 			<br>
 			<br>
 			<input class="btnAct" id="ticket" type="submit" value="Buscar" onclick="ejecutarAjax();" />

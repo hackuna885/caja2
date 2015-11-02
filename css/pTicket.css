@@ -60,6 +60,11 @@
 .centTab{
 	margin: 0px auto;
 }
+.centTab2{
+	margin: 0px auto;
+	border-collapse: separate;
+  	border-spacing: 0px 0px;
+}
 .tabTicket{
 	padding: 0px 3px;
 	font-family: monospace;
@@ -93,8 +98,39 @@
 	-webkit-border-radius: 5px;
 	        border-radius: 5px;
 }
+.btnEntrega{
+	text-align: center;
+	font-family: "Gotham-Bold";
+	font-size: 16px;
+	width: 200px;
+	height: 50px;
+	color: #FFF;
+	border: 0px solid;
+	background-color: #E91E63;
+	-webkit-border-radius: 5px;
+	        border-radius: 5px;
+}
 .cajaBold{
 	font-family: "Gotham-Bold";
 	font-size: 18px;
 	color: #003366;
+}
+.cuadroTablaCat{
+	margin-top: 10px;
+	height: 388px;
+	overflow-y: scroll;
+}
+.cuadroTablaCat2{
+	margin-top: 10px;
+	height: 388px;
+}
+.encTab{
+	background-color: #003366;
+	color: #FFF;
+}
+.clEncTab{
+	padding: 5px 10px;
+}
+.tabDer{
+	text-align: right;
 }

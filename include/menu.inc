@@ -8,7 +8,7 @@
 				<nav>
 					<a href="caja.php">Caja</a>
 					<a href="entrega.php">Entrega</a>
-					<a href="#">Catálogos</a>
+					<a href="catalogos.php">Catálogos</a>
 					<a href="#">Reportes</a>
 					<a href="#">Usuarios</a>
 					<a href="#">Cerrar</a>
