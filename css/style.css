@@ -231,10 +231,7 @@ a{
 	        border-radius: 5px;
 }
 input[type=date]{
-	position: absolute;
-	margin-left: 5px;
-	margin-top: 7px;
-	font-size: 18px;
+	font-size: 20px;
 }
 input[type=text]{
 	font-size: 20px;
