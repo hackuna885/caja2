@@ -1,6 +1,6 @@
 <?php 
 
-error_reporting(E_ALL ^ DEPRECATED);
+error_reporting(E_ALL ^ E_DEPRECATED);
 header("Content-Type: text/html; Charset=UTF-8");
 
 $fechaIni = $_POST['txtFechaIni'];
@@ -68,6 +68,7 @@ if ($fechaFin >= $fechaIni) {
 			 			<td>$'.$res2['impTotal'].'</td>
 			 		</tr>
 					';
+				$con -> close();
  			 ?>
  	</table>
 	 	</div>
