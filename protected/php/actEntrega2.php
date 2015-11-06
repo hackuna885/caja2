@@ -27,7 +27,7 @@ if (isset($folioSalida) && !empty($folioSalida)) {
 	$con = new SQLite3("../data/tienda.db") or die("Problemas para conectar");
 	$actFolio = $con -> query("UPDATE catFolio SET fStatus = '1', fEntregado = '1' WHERE numFolio = '$folioSalida'");
 	$actHistFTick = $con -> query("UPDATE histTicket SET histTFechaEntP = '$fechaRegCap' WHERE histTFolio = '$folioSalida'");
-	$inHistTicket = $con -> query("INSERT INTO histTicket (histTFolio,histTTotal,histTRecibido,histTaCuenta,histTCambio,histTRestante,histTNombreC,histTDireccC,histTTelC,histTFechaTick,histTFechaEnt,histTFechaEntP,histTTotalEntr) VALUES('$folioSalida','$txtTotalEnt','$txtRecibiEnt','','$txtCambioEnt','','$tNombreC','$tDireccC','$tTelC','$fechaRegCap','$fechaRegCapS','$fechaRegCap','$txtTotalEnt')");
+	$inHistTicket = $con -> query("INSERT INTO histTicket (histTFolio,histTTotal,histTRecibido,histTaCuenta,histTCambio,histTRestante,histTNombreC,histTDireccC,histTTelC,histTFechaTick,histTFechaEnt,histTFechaEntP,histTTotalEntr,histTEstatus) VALUES('$folioSalida','$txtTotalEnt','$txtRecibiEnt','','$txtCambioEnt','','$tNombreC','$tDireccC','$tTelC','$fechaRegCap','$fechaRegCapS','$fechaRegCap','$txtTotalEnt','L')");
 	$con -> close();
 	echo "<script> alert('Prenda Entregada!'); </script>";
 	echo "<script> window.location='entrega.php'; </script>";

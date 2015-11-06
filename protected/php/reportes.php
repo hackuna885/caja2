@@ -36,7 +36,7 @@ date_default_timezone_set('America/Mexico_City');
 				<div class="cFechaBus">
 					<h2>Fecha Final</h2>
 					<br>
-					<input type="date" class="inCor" name="txtFechFin" value="<?php echo date("Y-m-d"); ?>"/>
+					<input type="date" class="inCor" name="txtFechaFin" value="<?php echo date("Y-m-d"); ?>"/>
 				</div>
 			</div>
 			<div class="cBusDos">

@@ -28,8 +28,12 @@ if (isset($_POST['txtFolio']) && !empty($_POST['txtFolio'])) {
 		}else{
 			$impReal = $_SESSION['acuenta'];
 		}
-
-		$inHistTicket = $con -> query("INSERT INTO histTicket (histTFolio,histTTotal,histTRecibido,histTaCuenta,histTCambio,histTRestante,histTNombreC,histTDireccC,histTTelC,histTFechaTick,histTFechaEnt,histTFechaEntP,histTTotalEntr) VALUES('$txtFolio','$_SESSION[x]','$_SESSION[importe]','$_SESSION[acuenta]','$txtCambio','$txtRestan','$_SESSION[txtNom]','$_SESSION[txtDir]','$_SESSION[txtTel]','$txtFechaTick','$_SESSION[txtFec]','','$impReal')");
+		if ($impReal >= $_SESSION[x]) {
+			$inHistTicket = $con -> query("INSERT INTO histTicket (histTFolio,histTTotal,histTRecibido,histTaCuenta,histTCambio,histTRestante,histTNombreC,histTDireccC,histTTelC,histTFechaTick,histTFechaEnt,histTFechaEntP,histTTotalEntr,histTEstatus) VALUES('$txtFolio','$_SESSION[x]','$_SESSION[importe]','$_SESSION[acuenta]','$txtCambio','$txtRestan','$_SESSION[txtNom]','$_SESSION[txtDir]','$_SESSION[txtTel]','$txtFechaTick','$_SESSION[txtFec]','','$_SESSION[x]','L')");
+		}else{
+			$inHistTicket = $con -> query("INSERT INTO histTicket (histTFolio,histTTotal,histTRecibido,histTaCuenta,histTCambio,histTRestante,histTNombreC,histTDireccC,histTTelC,histTFechaTick,histTFechaEnt,histTFechaEntP,histTTotalEntr,histTEstatus) VALUES('$txtFolio','$_SESSION[x]','$_SESSION[importe]','$_SESSION[acuenta]','$txtCambio','$txtRestan','$_SESSION[txtNom]','$_SESSION[txtDir]','$_SESSION[txtTel]','$txtFechaTick','$_SESSION[txtFec]','','$impReal','P')");
+		}
+		
 
 		if ($txtRestan == 0) {
 			$actCatFolio = $con -> query("UPDATE catFolio SET fUsado='1', fStatus='1' WHERE numFolio = '$txtFolio'");
