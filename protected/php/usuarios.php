@@ -62,8 +62,32 @@ if ($count == 0) {
  		var NomUsr = document.getElementById("txtNomUsr").value="";
  		var PwUsr = document.getElementById("txtPwUsr").value="";
  		var TipUsr = document.getElementById("optTipUsr").value="2";
+ 		alert('Datos Guardados!');
+ 		ajaxget();
  	}
  	</script>
+ 	<script type="text/javascript">
+
+	function ajaxget(){
+
+		var ejeAjax;
+		if (window.XMLHttpRequest) {
+			ejeAjax = new XMLHttpRequest();
+		}else{
+			ejeAjax = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		ejeAjax.onreadystatechange= function(){
+			if (ejeAjax.readyState=4 && ejeAjax.status==200) {
+				document.getElementById("refresh").innerHTML=ejeAjax.responseText;
+			}
+		}
+		ejeAjax.open("GET","refreUsr.php", true);
+		ejeAjax.send();
+
+	}
+
+
+	</script>
  </head>
  <body>
  	<form action="">
@@ -73,8 +97,9 @@ if ($count == 0) {
  		<button type="button" onclick="">Buscar</button>
  		<br>
  		<p>Datos Personales:</p>
- 		<input type="text" name="txtIdUsr" id="txtIdUsr" placeholder="Id de Usuario.." value="<?php echo $idUsr; ?>"s/>
- 		<br>
+ 		<div id="refresh">
+ 		<input type="text" name="txtIdUsr" id="txtIdUsr" placeholder="Id de Usuario.." value="<?php echo $idUsr; ?>"/>
+ 		</div>
  		<input type="text" name="txtNombre" id="txtNombre" placeholder="Nombre.." required/>
  		<br>
  		<input type="text" name="txtApePat" id="txtApePat" placeholder="Apellido Paterno.."/>
@@ -103,6 +128,44 @@ if ($count == 0) {
  		<br>
  		<button type="button" onclick="">Actualizar</button>
  	</form>
- 	<div id="midiv"></div>
+ 	<div id="midiv">
+	<table>
+		<tr>
+			<td>Id</td>
+			<td>Usuario</td>
+			<td>Permisos</td>
+			<td></td>
+		</tr>
+
+		<?php 
+
+			$con = new SQLite3("../data/tienda.db") or die("Problemas para conectar");
+			$cs = $con -> query("SELECT * FROM catUsuarios");
+			while ($res = $cs -> fetchArray()) {
+				$resId = $res['catUsrIDUsr'];
+				$resUsr = $res['catUsrNomUsr'];
+				$resPer = $res['catUsrPerUsr'];
+
+				if ($resPer == 1) {
+					$resPer = "Administrador";
+				}else{
+					$resPer = "Usuario";
+				}
+
+				echo '
+			<tr>
+			<td>'.$resId.'</td>
+			<td>'.$resUsr.'</td>
+			<td>'.$resPer.'</td>
+			<td><input type="submit" value="Eliminar"/></td>
+			</tr>
+				';
+
+			}
+			$con -> close();
+
+		 ?>
+	</table>
+ 	</div>
  </body>
  </html>
