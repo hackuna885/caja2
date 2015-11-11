@@ -1,3 +1,22 @@
+<?php 
+
+error_reporting(E_ALL ^ E_DEPRECATED);
+header("Content-Type: text/html; Charset=UTF-8");
+
+$con = new SQLite3("../data/tienda.db") or die("Problemas para conectar");
+$cs = $con -> query("SELECT COUNT(catUsrIDUsr), MAX(catUsrIDUsr) FROM catUsuarios");
+$res = $cs -> fetchArray();
+$count = $res[0];
+$max = $res[1];
+
+if ($count == 0) {
+	$idUsr = "A0001";
+}else{
+	$idUsr = "A".substr((substr($max, 1) + 10001), 1);
+}
+
+ ?>
+
  <!DOCTYPE html>
  <html lang="es">
  <head>
@@ -14,6 +33,7 @@
  		}
 
  		var url = "insertUsr.php";
+ 		var IdUsr = document.getElementById("txtIdUsr").value;
 		var Nombre = document.getElementById("txtNombre").value;
 		var ApePat = document.getElementById("txtApePat").value;
 		var ApeMat = document.getElementById("txtApeMat").value;
@@ -23,7 +43,7 @@
 		var NomUsr = document.getElementById("txtNomUsr").value;
 		var PwUsr = document.getElementById("txtPwUsr").value;
 		var TipUsr = document.getElementById("optTipUsr").value;
-		var valores = "txtNombre="+Nombre+"&txtApePat="+ApePat+"&txtApeMat="+ApeMat+"&txtDirecc="+Direcc+"&txtNumTelCasa="+NumTelCasa+"&txtNumTelCel="+NumTelCel+"&txtNomUsr="+NomUsr+"&txtPwUsr="+PwUsr+"&optTipUsr="+TipUsr;
+		var valores = "txtIdUsr="+IdUsr+"&txtNombre="+Nombre+"&txtApePat="+ApePat+"&txtApeMat="+ApeMat+"&txtDirecc="+Direcc+"&txtNumTelCasa="+NumTelCasa+"&txtNumTelCel="+NumTelCel+"&txtNomUsr="+NomUsr+"&txtPwUsr="+PwUsr+"&optTipUsr="+TipUsr;
 
 		conexion.open("POST",url,true);
 		conexion.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
@@ -42,8 +62,6 @@
  		var NomUsr = document.getElementById("txtNomUsr").value="";
  		var PwUsr = document.getElementById("txtPwUsr").value="";
  		var TipUsr = document.getElementById("optTipUsr").value="2";
-
- 		alert('Datos Insertados');
  	}
  	</script>
  </head>
@@ -55,6 +73,8 @@
  		<button type="button" onclick="">Buscar</button>
  		<br>
  		<p>Datos Personales:</p>
+ 		<input type="text" name="txtIdUsr" id="txtIdUsr" placeholder="Id de Usuario.." value="<?php echo $idUsr; ?>"s/>
+ 		<br>
  		<input type="text" name="txtNombre" id="txtNombre" placeholder="Nombre.." required/>
  		<br>
  		<input type="text" name="txtApePat" id="txtApePat" placeholder="Apellido Paterno.."/>
