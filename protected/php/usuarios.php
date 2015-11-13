@@ -8,6 +8,7 @@ $cs = $con -> query("SELECT COUNT(catUsrIDUsr), MAX(catUsrIDUsr) FROM catUsuario
 $res = $cs -> fetchArray();
 $count = $res[0];
 $max = $res[1];
+$con -> close();
 
 if ($count == 0) {
 	$idUsr = "A0001";
@@ -21,7 +22,7 @@ if ($count == 0) {
  <html lang="es">
  <head>
  	<meta charset="UTF-8">
- 	<title>Crear Usuarios</title>
+ 	<title>Usuario</title>
  	<script type="text/javascript">
  	function insertarDatos(){
 
@@ -88,6 +89,28 @@ if ($count == 0) {
 
 
 	</script>
+
+	<script type="text/javascript">
+		function eliminarAjax(str){
+
+			var eliAjax;
+			if (window.XMLHttpRequest) {
+				eliAjax = new XMLHttpRequest();
+			}else{
+				eliAjax = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			eliAjax.onreadystatechange=function(){
+				if (eliAjax.readyState==4 && eliAjax.status==200) {
+					document.getElementById("midiv").innerHTML = eliAjax.responseText;
+				}
+			}
+			eliAjax.open("GET", "eliUsr.php?idUsr="+ str, true);
+			eliAjax.send();
+			alert('Usuario Eliminado!');
+			ajaxget();
+		}
+	</script>
+
  </head>
  <body>
  	<form action="">
@@ -98,9 +121,9 @@ if ($count == 0) {
  		<br>
  		<p>Datos Personales:</p>
  		<div id="refresh">
- 		<input type="text" name="txtIdUsr" id="txtIdUsr" placeholder="Id de Usuario.." value="<?php echo $idUsr; ?>"/>
+ 		<input type="text" name="txtIdUsr" id="txtIdUsr" placeholder="Id de Usuario.." value="<?php echo $idUsr; ?>" disabled/>
  		</div>
- 		<input type="text" name="txtNombre" id="txtNombre" placeholder="Nombre.." required/>
+ 		<input type="text" name="txtNombre" id="txtNombre" placeholder="Nombre.." autofocus/>
  		<br>
  		<input type="text" name="txtApePat" id="txtApePat" placeholder="Apellido Paterno.."/>
  		<br>
@@ -113,9 +136,9 @@ if ($count == 0) {
  		<input type="tel" name="txtNumTelCel" id="txtNumTelCel" placeholder="Teléfono Móvil.." maxlength="13"/>
  		<br>
  		<p>Datos de la Cuenta:</p>
- 		<input type="text" name="txtNomUsr" id="txtNomUsr" placeholder="Nombre de Usuario.." required/>
+ 		<input type="text" name="txtNomUsr" id="txtNomUsr" placeholder="Nombre de Usuario.." />
  		<br>
- 		<input type="password" name="txtPwUsr" id="txtPwUsr" placeholder="Password.." min="3" required/>
+ 		<input type="password" name="txtPwUsr" id="txtPwUsr" placeholder="Password.." min="3" />
  		<br>
  		<p>Permisos de:</p>
  		<select name="optTipUsr" id="optTipUsr">
@@ -124,7 +147,8 @@ if ($count == 0) {
  		</select>
  		<br>
  		<br>
- 		<button type="button" onclick="insertarDatos()">Guardar</button>
+ 		<input type="submit" value="Guardar" onclick="insertarDatos()"/>
+<!--  		<button type="button" onclick="insertarDatos()">Guardar</button> -->
  		<br>
  		<button type="button" onclick="">Actualizar</button>
  	</form>
@@ -145,6 +169,7 @@ if ($count == 0) {
 				$resId = $res['catUsrIDUsr'];
 				$resUsr = $res['catUsrNomUsr'];
 				$resPer = $res['catUsrPerUsr'];
+				$resId2 = "'".$resId."'";
 
 				if ($resPer == 1) {
 					$resPer = "Administrador";
@@ -157,7 +182,7 @@ if ($count == 0) {
 			<td>'.$resId.'</td>
 			<td>'.$resUsr.'</td>
 			<td>'.$resPer.'</td>
-			<td><input type="submit" value="Eliminar"/></td>
+			<td><button type="button" onclick="eliminarAjax('.$resId2.')">Eliminar</button></td>
 			</tr>
 				';
 

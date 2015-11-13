@@ -17,7 +17,7 @@ if ($count2 == 0) {
 }
 
 echo '
-<input type="text" name="txtIdUsr" id="txtIdUsr" placeholder="Id de Usuario.." value="'.$idUsr2.'"/>
+<input type="text" name="txtIdUsr" id="txtIdUsr" placeholder="Id de Usuario.." value="'.$idUsr2.'" disabled/>
 ';
  		
 
