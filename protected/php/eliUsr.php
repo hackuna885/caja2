@@ -18,13 +18,11 @@ $con -> close();
 	<title>Datos Eliminados</title>
 </head>
 <body>
+	<div class="cDerecho0">
+ 	<h2>Cuentas</h2>
+ 	<div class="tabScroll">
 	<table>
-		<tr>
-			<td>Id</td>
-			<td>Usuario</td>
-			<td>Permisos</td>
-			<td></td>
-		</tr>
+	
 
 		<?php 
 
@@ -44,9 +42,9 @@ $con -> close();
 
 				echo '
 			<tr>
-			<td>'.$resId.'</td>
-			<td>'.$resUsr.'</td>
-			<td>'.$resPer.'</td>
+			<td class="p2x">'.$resId.'</td>
+			<td class="p2x">'.$resUsr.'</td>
+			<td class="p1x">'.$resPer.'</td>
 			<td><button type="button" class="eliminar" onclick="eliminarAjax('.$resId2.')">Eliminar</button></td>
 			</tr>
 				';
@@ -56,6 +54,8 @@ $con -> close();
 
 		 ?>
 	</table>
+	</div>
+	</div>
 
 </body>
 </html>

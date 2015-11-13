@@ -112,13 +112,14 @@ if ($count == 0) {
 	</script>
 	<?php include("../../include/style.inc"); ?>
  	<link rel="stylesheet" href="../../css/pTicket.css">
+ 	<link rel="stylesheet" href="../../css/usrStyle.css">
  </head>
  <body>
  <div class="main_wrapper">
 	<div class="cUno">
 	<?php include("../../include/menu.inc"); ?>
-	<div class="pTicket">
-	<div class="c1Centro">
+	<div class="pTicket1">
+	<div class="c1Centro1">
 		<br>
 		<div class="tituloEnt">
 			<h1>Usuarios</h1>
@@ -134,52 +135,13 @@ if ($count == 0) {
  		<button type="button" class="btnAct" id="ticket" onclick="">Buscar</button>
  		<br>
  		<br>
- 		<h3>Datos Personales:</h3>
- 		<br>
- 		<div id="refresh">
- 		<input type="text" class="inRegC" name="txtIdUsr" id="txtIdUsr" placeholder="Id de Usuario.." value="<?php echo $idUsr; ?>" disabled/>
  		</div>
- 		<input type="text" class="inRegC" name="txtNombre" id="txtNombre" placeholder="Nombre.." autofocus/>
- 		<br>
- 		<input type="text" class="inRegC" name="txtApePat" id="txtApePat" placeholder="Apellido Paterno.."/>
- 		<br>
- 		<input type="text" class="inRegC" name="txtApeMat" id="txtApeMat" placeholder="Apellido Materno.."/>
- 		<br>
- 		<input type="text" class="inRegC" name="txtDirecc" id="txtDirecc" placeholder="Dirección.."/>
- 		<br>
- 		<input type="tel" class="inRegC" name="txtNumTelCasa" id="txtNumTelCasa" placeholder="Teléfono Casa.." maxlength="8"/>
- 		<br>
- 		<input type="tel" class="inRegC" name="txtNumTelCel" id="txtNumTelCel" placeholder="Teléfono Móvil.." maxlength="13"/>
- 		<br>
- 		<br>
- 		<h3>Datos de la Cuenta:</h3>
- 		<br>
- 		<input type="text" class="inRegC" name="txtNomUsr" id="txtNomUsr" placeholder="Nombre de Usuario.." />
- 		<br>
- 		<input type="password" class="inRegC" name="txtPwUsr" id="txtPwUsr" placeholder="Password.." min="3" />
- 		<br>
- 		<br>
- 		<h3>Permisos de:</h3>
- 		<br>
- 		<select name="optTipUsr" id="optTipUsr" class="inRegC">
- 			<option value="1">Administrador</option>
- 			<option value="2" selected>Usuario</option>
- 		</select>
- 		<br>
- 		<br>
- 		<input type="submit" class="btnAct" id="ticket" value="Guardar" onclick="insertarDatos()"/>
- 		<br>
- 		<button type="button" class="btnAct" id="cancel" onclick="">Actualizar</button>
- 		</div>
-
  	<div class="cDerUno" id="midiv">
+ 	<div class="cDerecho0">
+ 	<h2>Cuentas</h2>
+ 	<div class="tabScroll">
 	<table>
-		<tr>
-			<td>Id</td>
-			<td>Usuario</td>
-			<td>Permisos</td>
-			<td></td>
-		</tr>
+	
 
 		<?php 
 
@@ -199,9 +161,9 @@ if ($count == 0) {
 
 				echo '
 			<tr>
-			<td>'.$resId.'</td>
-			<td>'.$resUsr.'</td>
-			<td>'.$resPer.'</td>
+			<td class="p2x">'.$resId.'</td>
+			<td class="p2x">'.$resUsr.'</td>
+			<td class="p1x">'.$resPer.'</td>
 			<td><button type="button" class="eliminar" onclick="eliminarAjax('.$resId2.')">Eliminar</button></td>
 			</tr>
 				';
@@ -211,9 +173,59 @@ if ($count == 0) {
 
 		 ?>
 	</table>
+	</div>
+	</div>
  	</div>
  	</div>
  	</div>
+
+ 	<div class="pTicket2">
+ 		<div class="c1Centro2">
+ 			<div class="cIzqUno">
+ 				
+		 		<h3>Datos Personales:</h3>
+		 		<br>
+		 		<div id="refresh" class="inRefresh">
+		 		<input type="text" class="inRegC" name="txtIdUsr" id="txtIdUsr" placeholder="Id de Usuario.." value="<?php echo $idUsr; ?>" disabled/>
+		 		</div>
+		 		<input type="text" class="inRegC" name="txtNombre" id="txtNombre" placeholder="Nombre.." />
+		 		<br>
+		 		<input type="text" class="inRegC" name="txtApePat" id="txtApePat" placeholder="Apellido Paterno.."/>
+		 		<br>
+		 		<input type="text" class="inRegC" name="txtApeMat" id="txtApeMat" placeholder="Apellido Materno.."/>
+		 		<br>
+		 		<input type="text" class="inRegC" name="txtDirecc" id="txtDirecc" placeholder="Dirección.."/>
+		 		<br>
+		 		<input type="tel" class="inRegC" name="txtNumTelCasa" id="txtNumTelCasa" placeholder="Teléfono Casa.." maxlength="8"/>
+		 		<br>
+		 		<input type="tel" class="inRegC" name="txtNumTelCel" id="txtNumTelCel" placeholder="Teléfono Móvil.." maxlength="13"/>
+		 		<br>
+		 		<br>
+ 			</div>
+ 			<div class="cDerUno">
+ 				
+ 				<h3>Datos de la Cuenta:</h3>
+		 		<br>
+		 		<input type="text" class="inRegC" name="txtNomUsr" id="txtNomUsr" placeholder="Nombre de Usuario.." autofocus/>
+		 		<br>
+		 		<input type="password" class="inRegC" name="txtPwUsr" id="txtPwUsr" placeholder="Password.." min="3" />
+		 		<br>
+		 		<br>
+		 		<h3>Permisos de:</h3>
+		 		<br>
+		 		<select name="optTipUsr" id="optTipUsr" class="inRegC">
+		 			<option value="1">Administrador</option>
+		 			<option value="2" selected>Usuario</option>
+		 		</select>
+		 		<br>
+		 		<br>
+		 		<input type="submit" class="btnAct" id="ticket" value="Guardar" onclick="insertarDatos()"/>
+
+ 			</div>
+ 		</div>
+ 	</div>
+
+
  	</div>
  	</div>
  </body>
