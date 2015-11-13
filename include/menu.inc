@@ -10,7 +10,7 @@
 					<a href="entrega.php">Entrega</a>
 					<a href="catalogos.php">Catálogos</a>
 					<a href="reportes.php">Reportes</a>
-					<a href="#">Usuarios</a>
+					<a href="usuarios.php">Usuarios</a>
 					<a href="#">Cerrar</a>
 				</nav>
 			</hgroup>

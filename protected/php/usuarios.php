@@ -110,49 +110,69 @@ if ($count == 0) {
 			ajaxget();
 		}
 	</script>
-
+	<?php include("../../include/style.inc"); ?>
+ 	<link rel="stylesheet" href="../../css/pTicket.css">
  </head>
  <body>
- 	<form action="">
- 		<p>Buscar Usuario:</p>
- 		<input type="text" name="txtBusc" placeholder="Buscar id.."/>
+ <div class="main_wrapper">
+	<div class="cUno">
+	<?php include("../../include/menu.inc"); ?>
+	<div class="pTicket">
+	<div class="c1Centro">
+		<br>
+		<div class="tituloEnt">
+			<h1>Usuarios</h1>
+		</div>
+		<br>
+		<div class="cIzqUno">
+		<br>
+ 		<h2>Buscar Usuario:</h2>
  		<br>
- 		<button type="button" onclick="">Buscar</button>
+ 		<input type="text" class="inRegC" name="txtBusc" placeholder="Buscar id.."/>
  		<br>
- 		<p>Datos Personales:</p>
+ 		<br>
+ 		<button type="button" class="btnAct" id="ticket" onclick="">Buscar</button>
+ 		<br>
+ 		<br>
+ 		<h3>Datos Personales:</h3>
+ 		<br>
  		<div id="refresh">
- 		<input type="text" name="txtIdUsr" id="txtIdUsr" placeholder="Id de Usuario.." value="<?php echo $idUsr; ?>" disabled/>
+ 		<input type="text" class="inRegC" name="txtIdUsr" id="txtIdUsr" placeholder="Id de Usuario.." value="<?php echo $idUsr; ?>" disabled/>
  		</div>
- 		<input type="text" name="txtNombre" id="txtNombre" placeholder="Nombre.." autofocus/>
+ 		<input type="text" class="inRegC" name="txtNombre" id="txtNombre" placeholder="Nombre.." autofocus/>
  		<br>
- 		<input type="text" name="txtApePat" id="txtApePat" placeholder="Apellido Paterno.."/>
+ 		<input type="text" class="inRegC" name="txtApePat" id="txtApePat" placeholder="Apellido Paterno.."/>
  		<br>
- 		<input type="text" name="txtApeMat" id="txtApeMat" placeholder="Apellido Materno.."/>
+ 		<input type="text" class="inRegC" name="txtApeMat" id="txtApeMat" placeholder="Apellido Materno.."/>
  		<br>
- 		<input type="text" name="txtDirecc" id="txtDirecc" placeholder="Dirección.."/>
+ 		<input type="text" class="inRegC" name="txtDirecc" id="txtDirecc" placeholder="Dirección.."/>
  		<br>
- 		<input type="tel" name="txtNumTelCasa" id="txtNumTelCasa" placeholder="Teléfono Casa.." maxlength="8"/>
+ 		<input type="tel" class="inRegC" name="txtNumTelCasa" id="txtNumTelCasa" placeholder="Teléfono Casa.." maxlength="8"/>
  		<br>
- 		<input type="tel" name="txtNumTelCel" id="txtNumTelCel" placeholder="Teléfono Móvil.." maxlength="13"/>
+ 		<input type="tel" class="inRegC" name="txtNumTelCel" id="txtNumTelCel" placeholder="Teléfono Móvil.." maxlength="13"/>
  		<br>
- 		<p>Datos de la Cuenta:</p>
- 		<input type="text" name="txtNomUsr" id="txtNomUsr" placeholder="Nombre de Usuario.." />
  		<br>
- 		<input type="password" name="txtPwUsr" id="txtPwUsr" placeholder="Password.." min="3" />
+ 		<h3>Datos de la Cuenta:</h3>
  		<br>
- 		<p>Permisos de:</p>
- 		<select name="optTipUsr" id="optTipUsr">
+ 		<input type="text" class="inRegC" name="txtNomUsr" id="txtNomUsr" placeholder="Nombre de Usuario.." />
+ 		<br>
+ 		<input type="password" class="inRegC" name="txtPwUsr" id="txtPwUsr" placeholder="Password.." min="3" />
+ 		<br>
+ 		<br>
+ 		<h3>Permisos de:</h3>
+ 		<br>
+ 		<select name="optTipUsr" id="optTipUsr" class="inRegC">
  			<option value="1">Administrador</option>
  			<option value="2" selected>Usuario</option>
  		</select>
  		<br>
  		<br>
- 		<input type="submit" value="Guardar" onclick="insertarDatos()"/>
-<!--  		<button type="button" onclick="insertarDatos()">Guardar</button> -->
+ 		<input type="submit" class="btnAct" id="ticket" value="Guardar" onclick="insertarDatos()"/>
  		<br>
- 		<button type="button" onclick="">Actualizar</button>
- 	</form>
- 	<div id="midiv">
+ 		<button type="button" class="btnAct" id="cancel" onclick="">Actualizar</button>
+ 		</div>
+
+ 	<div class="cDerUno" id="midiv">
 	<table>
 		<tr>
 			<td>Id</td>
@@ -182,7 +202,7 @@ if ($count == 0) {
 			<td>'.$resId.'</td>
 			<td>'.$resUsr.'</td>
 			<td>'.$resPer.'</td>
-			<td><button type="button" onclick="eliminarAjax('.$resId2.')">Eliminar</button></td>
+			<td><button type="button" class="eliminar" onclick="eliminarAjax('.$resId2.')">Eliminar</button></td>
 			</tr>
 				';
 
@@ -191,6 +211,10 @@ if ($count == 0) {
 
 		 ?>
 	</table>
+ 	</div>
+ 	</div>
+ 	</div>
+ 	</div>
  	</div>
  </body>
  </html>

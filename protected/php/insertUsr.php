@@ -53,7 +53,7 @@ $con -> close();
 			<td>'.$resId.'</td>
 			<td>'.$resUsr.'</td>
 			<td>'.$resPer.'</td>
-			<td><button type="button" onclick="eliminarAjax('.$resId2.')">Eliminar</button></td>
+			<td><button type="button" class="eliminar" onclick="eliminarAjax('.$resId2.')">Eliminar</button></td>
 			</tr>
 				';
 
