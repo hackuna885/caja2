@@ -90,6 +90,32 @@ if ($count == 0) {
 
 	</script>
 
+ 	<script type="text/javascript">
+ 	function buscarAjax(){
+
+ 		var busAjax;
+ 		if (window.XMLHttpRequest) {
+ 			busAjax = new XMLHttpRequest();
+ 		}else{
+ 			busAjax = new ActiveXObject("Microsoft.XMLHTTP");
+ 		}
+
+ 		var url = "buscarUsr.php";
+ 		var Busc = document.getElementById("txtBusc").value;
+		var valores = "txtBusc="+Busc;
+
+		busAjax.open("POST",url,true);
+		busAjax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+ 		busAjax.onreadystatechange=function(){
+ 			if (busAjax.readyState==4 && busAjax.status==200) {
+ 				document.getElementById("midiv2").innerHTML = busAjax.responseText;
+ 			}
+ 		}
+ 		busAjax.send(valores);
+ 		var Busc = document.getElementById("txtBusc").value="";
+ 	}
+ 	</script>
+
 	<script type="text/javascript">
 		function eliminarAjax(str){
 
@@ -129,10 +155,10 @@ if ($count == 0) {
 		<br>
  		<h2>Buscar Usuario:</h2>
  		<br>
- 		<input type="text" class="inRegC" name="txtBusc" placeholder="Buscar id.."/>
+ 		<input type="text" class="inRegC" name="txtBusc" id="txtBusc" placeholder="Buscar id.." maxlength="5"/>
  		<br>
  		<br>
- 		<button type="button" class="btnAct" id="ticket" onclick="">Buscar</button>
+ 		<button type="button" class="btnAct" id="ticket" onclick="buscarAjax()">Buscar</button>
  		<br>
  		<br>
  		</div>
@@ -179,7 +205,7 @@ if ($count == 0) {
  	</div>
  	</div>
 
- 	<div class="pTicket2">
+ 	<div class="pTicket2" id="midiv2">
  		<div class="c1Centro2">
  			<div class="cIzqUno">
  				
