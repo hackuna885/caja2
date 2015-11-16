@@ -11,7 +11,7 @@
 					<a href="catalogos.php">Catálogos</a>
 					<a href="reportes.php">Reportes</a>
 					<a href="usuarios.php">Usuarios</a>
-					<a href="#">Cerrar</a>
+					<a href="destruir.php">Cerrar</a>
 				</nav>
 			</hgroup>
 			</div>

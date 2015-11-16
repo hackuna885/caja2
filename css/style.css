@@ -58,6 +58,12 @@ td{
 .imglogo{
 	width: 120px;
 }
+.cLogin{
+	margin: 0px auto;
+	text-align: center;
+	width: 225px;
+	height: 100%;
+}
 .cMenu{
 	float: right;
 	width: auto;

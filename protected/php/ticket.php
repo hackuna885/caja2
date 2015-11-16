@@ -1,6 +1,7 @@
 <?php 
 
-session_start();
+include("contAcceso.php");
+
 error_reporting(E_ALL ^ E_DEPRECATED);
 header("Content-Type: text/html; Charset=UTF-8");
 date_default_timezone_set('America/Mexico_City');

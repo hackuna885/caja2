@@ -1,5 +1,7 @@
 <?php 
 
+include("contAcceso.php");
+
 error_reporting(E_ALL ^ E_DEPRECATED);
 header("Content-Type: text/html; Charset=UTF-8");
 
