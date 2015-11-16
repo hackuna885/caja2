@@ -20,17 +20,20 @@ $TelCelu = $res['catUsrTelCelu'];
 $NomUsr = $res['catUsrNomUsr'];
 $PerUsr = $res['catUsrPerUsr'];
 
+$con -> close();
  ?>
  <html>
  	
 
  		<div class="c1Centro2">
+ 		<form action="actualUsr.php" method="post">
  			<div class="cIzqUno">
- 				
+
 		 		<h3>Datos Personales:</h3>
 		 		<br>
 		 		<div id="refresh" class="inRefresh">
 		 		<input type="text" class="inRegC" name="txtIdUsr" id="txtIdUsr" placeholder="Id de Usuario.." value="<?php echo $UsrIDUsr; ?>" disabled/>
+		 		<input type="text" class="inRegC" name="txtIdUsr2" id="txtIdUsr2" placeholder="Id de Usuario.." value="<?php echo $UsrIDUsr; ?>" hidden/>
 		 		</div>
 		 		<input type="text" class="inRegC" name="txtNombre" id="txtNombre" placeholder="Nombre.." value="<?php echo $Nombre; ?>" />
 		 		<br>
@@ -57,19 +60,34 @@ $PerUsr = $res['catUsrPerUsr'];
 		 		<br>
 		 		<h3>Permisos de:</h3>
 		 		<br>
-		 		<select name="optTipUsr" id="optTipUsr" class="inRegC" value="<?php echo $PerUsr; ?>">
-		 			<option value="1">Administrador</option>
-		 			<option value="2">Usuario</option>
+		 		<select name="optTipUsr" id="optTipUsr" class="inRegC">
+		 			<?php 
+
+							if ($PerUsr == 1) {
+								echo'
+								<option value="1" selected>Administrador</option>
+								<option value="2">Usuario</option>
+								';
+							}else{
+								echo'
+								<option value="1">Administrador</option>
+								<option value="2" selected>Usuario</option>
+								';
+							}
+
+		 			 ?>
 		 		</select>
 		 		<br>
 		 		<br>
-		 		<input type="submit" class="btnAct" id="ticket" value="Actualizar" onclick="actualizarDatos()"/>
-		 		<br>
-		 		<input type="submit" class="btnAct" id="cancel" value="Cancelar"/>
-		 		<br>
-		 		<br>
 
+		 		<input type="submit" class="btnAct" id="ticket" value="Actualizart"/>
+		 		<br>
+		 		<a href="usuarios.php"><button type="button" class="btnAct" id="cancel">Cancelar</button></a>
+		 		<br>
+		 		<br>
+				
  			</div>
+ 		</form>
  		</div>
 
  </html>
