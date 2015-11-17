@@ -35,6 +35,24 @@ date_default_timezone_set('America/Mexico_City');
 			conexion.send();
 		}
 	</script>
+		<script>
+		function ajaxObserva(str){
+
+		var cambioObser;
+		if (window.XMLHttpRequest) {
+			cambioObser = new XMLHttpRequest();
+		}else{
+			cambioObser = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		cambioObser.onreadystatechange= function(){
+			if (cambioObser.readyState==4 && cambioObser.status==200) {
+			}
+		}
+		cambioObser.open("GET","accion.php?variable="+ str, true);
+		cambioObser.send();
+
+	}
+	</script>
 	<title>Caja</title>
 </head>
 <body>
@@ -100,10 +118,13 @@ echo '
 
 while ($res3 = $cs3 -> fetchArray()) {
 
+	$obser = "'".$res3[0]."' + this.value";
+
 	echo '
 
 		<tr>
 			<td class="p1">'.$res3[1].'</td>
+			<td class="p4"><input type="text" class="miniText" name="txtObs"  onkeyup="ajaxObserva('.$obser.')" value="'.$res3['observa'].'" /></td>
 			<td class="p2">$'.$res3[2].'</td>
 			<td class="p3"><button class="eliminar" type="button" value="'.$res3[0].'" onclick="ejecutarAjax(this.value)">Eliminar</button></td>
 		</tr>

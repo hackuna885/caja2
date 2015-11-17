@@ -196,13 +196,18 @@ a{
 	font-size: 16px;
 }
 .p1{
-	width: 150px;
+	width: 110px;
+	font-size: 13px;
 }
 .p2{
-	width: 50px;
+	width: 40px;
+	font-size: 14px;
 }
 .p3{
 	width: 60px;
+}
+.p4{
+	text-align: center;	
 }
 #ticket{
 	background-color: #003366;
@@ -245,6 +250,10 @@ input[type=text]{
 input[type=tel]{
 	font-size: 20px;
 }
+input, .miniText[type=text]{
+	width: 65px;
+	font-size: 13px;
+}
 .inReg{
 	width: 300px;
 	height: 40px;
@@ -264,4 +273,7 @@ input[type=tel]{
 	border-color: #003366;
 	-webkit-border-radius: 5px;
 	        border-radius: 5px;
+}
+.miniText{
+	width: 80px;
 }
