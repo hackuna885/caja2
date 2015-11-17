@@ -1,3 +1,28 @@
+<?php 
+
+if ($_SESSION['permisos'] == 1) {
+	$perUsrActive = '
+					<a href="caja.php">Caja</a>
+					<a href="entrega.php">Entrega</a>
+					<a href="catalogos.php">Catálogos</a>
+					<a href="reportes.php">Reportes</a>
+					<a href="usuarios.php">Usuarios</a>
+					<a href="destruir.php">Cerrar</a>
+	';
+}else{
+	$perUsrActive = '
+					<a href="caja.php">Caja</a>
+					<a href="entrega.php">Entrega</a>
+					<a href="#">Catálogos</a>
+					<a href="#">Reportes</a>
+					<a href="#">Usuarios</a>
+					<a href="destruir.php">Cerrar</a>
+	';
+}
+
+ ?>
+
+
 <div class="cHeader">
 		<header>
 			<div class="cLogo">
@@ -6,12 +31,7 @@
 			<div class="cMenu">
 			<hgroup>
 				<nav>
-					<a href="caja.php">Caja</a>
-					<a href="entrega.php">Entrega</a>
-					<a href="catalogos.php">Catálogos</a>
-					<a href="reportes.php">Reportes</a>
-					<a href="usuarios.php">Usuarios</a>
-					<a href="destruir.php">Cerrar</a>
+					<?php echo $perUsrActive; ?>
 				</nav>
 			</hgroup>
 			</div>
