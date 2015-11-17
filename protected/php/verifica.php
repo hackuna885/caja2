@@ -15,6 +15,7 @@ if (isset($_POST['txtUsr']) && !empty($_POST['txtUsr']) &&
 
 	if ($rs['catUsrPwUsr'] == md5($_POST['txtPw'])) {
 		$_SESSION['username'] = $_POST['txtUsr'];
+		$_SESSION['UsrNombre'] = $rs['catUsrNombre'];
 		$_SESSION['permisos'] = $rs['catUsrPerUsr'];
 		echo '
 			<html>

@@ -176,7 +176,10 @@ if (isset($_POST['btn1'])) {
 				<br>
 				Fecha Ticket: <?php  echo $fechaRegCap; ?> 
 				<br>
-				Fecha Entrega: <?php  echo $txtFec; ?>
+				Fecha Entrega: <?php  echo $txtFec  . " 2:00 pm"; ?>
+				<br>
+				Te Atendió: <?php echo $_SESSION['UsrNombre']; ?>
+				<br>
 			</p>
 			<p class="txtTicketCod">
 				<?php echo '*'.$noTick.'*'; ?>

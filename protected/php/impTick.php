@@ -106,7 +106,11 @@ $txtRestan = $_POST['txtRestan'];
 				<br>
 				Fecha Ticket: <?php  echo $fechaRegCap; ?> 
 				<br>
-				Fecha Entrega: <?php  echo $_SESSION['txtFec']; ?>
+				Fecha Entrega: <?php  echo $_SESSION['txtFec'] . " 2:00 pm"; ?>
+				<br>
+				Te Atendió: <?php echo $_SESSION['UsrNombre']; ?>
+				<br>
+				<br>
 		</p>
 		<p class="txtTicketCod">
 			<?php echo "*".$_SESSION['noTick']."*"; ?>
