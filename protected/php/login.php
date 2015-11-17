@@ -26,7 +26,7 @@ header("Content-Type: text/html; Charset=UTF-8");
 			<input type="text"  class="inRegC" name="txtUsr" placeholder="Usuario..." required autofocus/>
 			<br>
 			<br>
-			<input type="text"  class="inRegC" name="txtPw" placeholder="Password..." required/>
+			<input type="password"  class="inRegC" name="txtPw" placeholder="Password..." required/>
 			<br>
 			<br>
 			<input type="submit" class="btnAct" id="ticket" value="Entrar"/>
