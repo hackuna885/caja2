@@ -10,7 +10,7 @@ if ($fechaFin >= $fechaIni) {
 
 	$con = new SQLite3("../data/tienda.db") or die("Problemas para conectar");
 	$cs = $con -> query("SELECT histTFolio, histTFechaTick, histTEstatus, histTTotalEntr, SUBSTR(histTFechaTick, 1, 10) AS FechaTicket FROM histTicket WHERE FechaTicket BETWEEN '$fechaIni' AND '$fechaFin' ORDER BY histTFolio");
-	$cs2 = $con ->query("SELECT SUM(histTTotalEntr) AS impTotal FROM histTicket");	
+	$cs2 = $con ->query("SELECT SUM(histTTotalEntr) AS impTotal, SUBSTR(histTFechaTick, 1, 10) AS FechaTicket FROM histTicket WHERE FechaTicket BETWEEN '$fechaIni' AND '$fechaFin'");	
 
 }else{
 	echo "<script> alert('La Fecha Final no puede ser Menor!'); </script>";
