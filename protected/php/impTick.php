@@ -44,7 +44,7 @@ $txtRestan = $_POST['txtRestan'];
 					while ($res = $cs -> fetchArray()) {
 
 						$codArt = $res[0];
-						$prenda = $res[1];
+						$prenda = $res[1]." ".$res[4];
 						$monto = $res[2];
 						$folio = $res[3];
 
