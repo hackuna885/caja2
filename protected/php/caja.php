@@ -6,7 +6,7 @@ error_reporting(E_ALL ^ E_DEPRECATED);
 header("Content-Type: text/html; Charset=UTF-8");
 date_default_timezone_set('America/Mexico_City');
 
-
+$_SESSION['montoExpress'] = 1;
 
  ?>
 
@@ -50,6 +50,25 @@ date_default_timezone_set('America/Mexico_City');
 		}
 		cambioObser.open("GET","accion.php?variable="+ str, true);
 		cambioObser.send();
+
+	}
+	</script>
+		<script>
+	function ejecutarExpress(str){
+		var express;
+		if (window.XMLHttpRequest) {
+			express = new XMLHttpRequest();
+		}else{
+			express = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+
+		express.onreadystatechange=function(){
+			if (express.readyState==4 && express.status==200) {
+				document.getElementById("areaExpress").innerHTML = express.responseText;
+			}
+		}
+		express.open("GET","express.php?varExpress=" + str, true);
+		express.send();
 
 	}
 	</script>
@@ -153,6 +172,9 @@ echo '
 	</div>
 	<div class="cDos">
 		<input type="text" class="inReg" name="txtNom" placeholder="Nombre..." autofocus/>
+		<div id="areaExpress" class="areaExpress">
+		<input type="checkbox" name="express" value="1" onclick="ejecutarExpress(this.value)"/>Express
+		</div>
 		<br>
 		<input type="text" class="inLar" name="txtDir" placeholder="Dirección..."/>
 		<input type="tel" class="inCor" name="txtTel" placeholder="Teléfono..." maxlength="13" />
