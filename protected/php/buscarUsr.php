@@ -80,7 +80,7 @@ $con -> close();
 		 		<br>
 		 		<br>
 
-		 		<input type="submit" class="btnAct" id="ticket" value="Actualizart"/>
+		 		<input type="submit" class="btnAct" id="ticket" value="Actualizar"/>
 		 		<br>
 		 		<a href="usuarios.php"><button type="button" class="btnAct" id="cancel">Cancelar</button></a>
 		 		<br>
