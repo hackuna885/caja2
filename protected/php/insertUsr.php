@@ -1,5 +1,8 @@
 <?php 
 
+if (isset($_POST['txtNomUsr']) && !empty($_POST['txtNomUsr']) &&
+	isset($_POST['txtPwUsr']) && !empty($_POST['txtPwUsr']) ) {
+
 $IdUsr = $_POST['txtIdUsr'];
 $Nombre = $_POST['txtNombre'];
 $ApePat = $_POST['txtApePat'];
@@ -15,6 +18,9 @@ $TipUsr = $_POST['optTipUsr'];
 $con = new SQLite3("../data/tienda.db") or die("Problemas para conectar");
 $cs = $con -> query("INSERT INTO catUsuarios (catUsrIDUsr, catUsrNombre, catUsrAPaterno, catUsrAMaterno, catUsrDirecc, catUsrTelCasa, catUsrTelCelu, catUsrNomUsr, catUsrPwUsr, catUsrPerUsr) VALUES('$IdUsr', '$Nombre','$ApePat','$ApeMat','$Direcc','$NumTelCasa','$NumTelCel','$NomUsr','$pwEncript','$TipUsr')");
 $con -> close();
+
+}
+
 
  ?>
 <!DOCTYPE html>

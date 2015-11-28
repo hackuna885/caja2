@@ -56,6 +56,10 @@ if ($count == 0) {
  			}
  		}
  		conexion.send(valores);
+ 		if (txtNomUsr.value   == '') { alert ('Falta Nombre de Usuario!');  
+		txtNomUsr.focus(); return false; } 
+		if (txtPwUsr.value   == '') { alert ('Falta Password!');  
+		txtPwUsr.focus(); return false; } 
  		var Nombre = document.getElementById("txtNombre").value="";
  		var ApePat = document.getElementById("txtApePat").value="";
  		var ApeMat = document.getElementById("txtApeMat").value="";

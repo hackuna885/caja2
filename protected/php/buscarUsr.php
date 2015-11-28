@@ -55,7 +55,7 @@ $con -> close();
 		 		<br>
 		 		<input type="text" class="inRegC" name="txtNomUsr" id="txtNomUsr" placeholder="Nombre de Usuario.." value="<?php echo $NomUsr; ?>" autofocus/>
 		 		<br>
-		 		<input type="password" class="inRegC" name="txtPwUsr" id="txtPwUsr" placeholder="Password.." min="3" />
+		 		<input type="password" class="inRegC" name="txtPwUsr" id="txtPwUsr" required placeholder="Password.." min="3" />
 		 		<br>
 		 		<br>
 		 		<h3>Permisos de:</h3>
@@ -80,7 +80,7 @@ $con -> close();
 		 		<br>
 		 		<br>
 
-		 		<input type="submit" class="btnAct" id="ticket" value="Actualizar"/>
+		 		<input type="submit" class="btnAct" id="ticket" value="Actualizar" />
 		 		<br>
 		 		<a href="usuarios.php"><button type="button" class="btnAct" id="cancel">Cancelar</button></a>
 		 		<br>
