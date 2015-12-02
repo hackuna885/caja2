@@ -207,7 +207,15 @@ a{
 	width: 60px;
 }
 .p4{
-	text-align: center;	
+	width: 110px;
+	font-size: 12px;	
+}
+.p5{
+	width: 110px;
+	font-size: 12px;
+	font-family: "Gotham-Bold";
+	color: #003366;
+		
 }
 #ticket{
 	background-color: #003366;

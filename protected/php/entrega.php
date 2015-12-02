@@ -116,7 +116,7 @@ $fechaRegCap = date("Y-m-d" . " " . "g:i a");
 			<input class="inRegC" type="text" id="txtBusTick" name="txtCodEnt" placeholder="Código de 6 dígitos" onkeyup="if(validateEnter(event) == true) { ejecutarAjax(); }" maxlength="6" autofocus/>
 			<br>
 			<br>
-			<input class="btnAct" id="ticket" type="submit" value="Buscar" onclick="ejecutarAjax();" />
+			<input class="btnAct" id="ticket" type="submit" value="Buscar Ticket" onclick="ejecutarAjax();" />
 			<br>
 			<br>
 			<input class="inRegC" type="text" id="txtBusPer" name="txtBusPer" placeholder="Busca por nombre ..." />
@@ -124,7 +124,7 @@ $fechaRegCap = date("Y-m-d" . " " . "g:i a");
 			<br>
 			<input class="btnAct" id="ticket" type="submit" value="Buscar Persona" onclick="ejecutarAjax2();" />
 		</div>
-		<div class="cDerUno" id="midiv">
+		<div class="cDerUno2" id="midiv">
 			<h3>Estatus de Ticket:</h3>
 		</div>
 	</div>

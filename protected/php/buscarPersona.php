@@ -8,6 +8,8 @@ $fechaRegCap = date("Y-m-d" . " " . "g:i a");
 
 $variable = $_POST['buscarTicket'];
 
+if (isset($variable) && !empty($variable)) {
+
 $con = new SQLite3("../data/tienda.db") or die("Problemas para conectar!");
 $cs = $con -> query("SELECT histTFolio,histTNombreC,histTFechaTick,histTFechaEntP FROM histTicket where histTNombreC LIKE '%$variable%'");
 
@@ -15,10 +17,10 @@ echo '
 
 <table>
 	<tr>
-		<td>Folio</td>
-		<td>Nombre</td>
-		<td>Fecha de Ticket</td>
-		<td>Fecha de Entrega</td>
+		<td class="p5">Folio</td>
+		<td class="p5">Nombre</td>
+		<td class="p5">Fecha de Ticket</td>
+		<td class="p5">Fecha de Entrega</td>
 	</tr>
 
 ';
@@ -28,10 +30,10 @@ while ( $bus = $cs -> fetchArray()) {
 	echo '
 
 		<tr>
-		<td>'.$bus[0].'</td>
-		<td>'.$bus[1].'</td>
-		<td>'.$bus[2].'</td>
-		<td>'.$bus[3].'</td>
+		<td class="p1">'.$bus[0].'</td>
+		<td class="p4">'.$bus[1].'</td>
+		<td class="p4">'.$bus[2].'</td>
+		<td class="p4">'.$bus[3].'</td>
 		</tr>
 ';
 
@@ -43,5 +45,12 @@ echo '
 </table>
 
 ';
+
+
+}else{
+	echo "<h3>Estatus de Ticket:</h3>";
+}
+
+
 
  ?>
