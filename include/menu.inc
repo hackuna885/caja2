@@ -7,6 +7,7 @@ if ($_SESSION['permisos'] == 1) {
 					<a href="catalogos.php">Catálogos</a>
 					<a href="reportes.php">Reportes</a>
 					<a href="usuarios.php">Usuarios</a>
+					<a href="cancelar.php">Cancelar</a>
 					<a href="destruir.php">Cerrar</a>
 	';
 }else{
@@ -16,6 +17,7 @@ if ($_SESSION['permisos'] == 1) {
 					<a href="#">Catálogos</a>
 					<a href="#">Reportes</a>
 					<a href="#">Usuarios</a>
+					<a href="#">Cancelar</a>
 					<a href="destruir.php">Cerrar</a>
 	';
 }
