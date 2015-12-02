@@ -38,6 +38,30 @@ $fechaRegCap = date("Y-m-d" . " " . "g:i a");
 		ajax.send(valores);
  	}
  	</script>
+ 	 	<script type="text/javascript">
+ 	function ejecutarAjax2(){
+ 		var ajax;
+		if (window.XMLHttpRequest) {
+			ajax = new XMLHttpRequest();
+		}else{
+			ajax = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+
+		var url = "buscarPersona.php";
+		var busTick = document.getElementById("txtBusPer").value;
+		var valores = "buscarTicket="+busTick;
+
+		ajax.open("POST",url,true);
+		ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+		ajax.onreadystatechange=function(){
+			if (ajax.readyState==4 && ajax.status==200) {
+				document.getElementById("midiv").innerHTML = ajax.responseText;
+			}
+		}
+
+		ajax.send(valores);
+ 	}
+ 	</script>
  	<script>
  	function calcula(){
 		var ajax;
@@ -93,6 +117,12 @@ $fechaRegCap = date("Y-m-d" . " " . "g:i a");
 			<br>
 			<br>
 			<input class="btnAct" id="ticket" type="submit" value="Buscar" onclick="ejecutarAjax();" />
+			<br>
+			<br>
+			<input class="inRegC" type="text" id="txtBusPer" name="txtBusPer" placeholder="Busca por nombre ..." />
+			<br>
+			<br>
+			<input class="btnAct" id="ticket" type="submit" value="Buscar Persona" onclick="ejecutarAjax2();" />
 		</div>
 		<div class="cDerUno" id="midiv">
 			<h3>Estatus de Ticket:</h3>
