@@ -118,7 +118,7 @@ $_SESSION['montoExpress'] = 1;
 		<button class="btnCuadro" id="btn24" type="button" onclick="ejecutarAjax('Trajes 3 Pzas')"><p>Trajes 3 Pzas</p></button>
 		<button class="btnCuadro" id="btn25" type="button" onclick="ejecutarAjax('Vestido Corto')"><p>Vestido C</p></button>
 		<button class="btnCuadro" id="btn26" type="button" onclick="ejecutarAjax('Vestido Largo')"><p>Vestido L</p></button>
-		<button class="btnCuadro" id="btn15" type="button" onclick="ejecutarAjax('Pieza')"><p>1 Kilogramo</p></button>
+		<button class="btnCuadro" id="btn15" type="button" onclick="ejecutarAjax('Kilogramo')"><p>1 Kilogramo</p></button>
 	</div>
 	<div class="cDerecho">
 		<h2>Prendas</h2>
