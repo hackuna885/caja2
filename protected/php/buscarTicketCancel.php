@@ -15,21 +15,16 @@ $con -> close();
 
 
 if ($bus['encont'] == 0) {
-	$resBus = "No tengo resultados";
+
+	echo '<h3>No tengo Resusltados!</h3>';
 }else{
 
-	if ($bus['fUsado'] == 0) {
-		$resBus = "Folio Encontrado, No Usado!";
-	}else{
-		if ($bus['fEntregado'] == 0) {
+	switch ($bus['fEntregado']) {
+		case 0:
 
-			if ($bus['fStatus'] == 2) {
-			$resBus = '
-
-			Folio CANCELADO!
-
-			';
-			}else{
+		if ($bus['fUsado'] == 0) {
+			echo '<h3>Folio Encontrado, No Usado</h3>';
+		}else{
 			$con = new SQLite3("../data/tienda.db") or die("Problemas para conectar!");
 			$cs = $con -> query("SELECT histTFolio,histTNombreC,histTTotalEntr,histTFechaEntP FROM histTicket where histTFolio = '$variable'");
 
@@ -61,6 +56,7 @@ if ($bus['encont'] == 0) {
 					</td>
 					</tr>
 			';
+			}
 
 			}
 			$con -> close();
@@ -70,14 +66,15 @@ if ($bus['encont'] == 0) {
 			</table>
 
 			';
-				
-			}
-		}else{
-
-			echo "No puedo CANCELAR, Prenda Entrega!";
-		}
-
+			break;
+		case 1:
+			echo '<h3>No puedo CANCELAR, Prenda Entrega!</h3>';
+			break;
+		case 2:
+			echo '<h3>Folio CANCELADO!</h3>';
+			break;
 	}
+
 
 }
 

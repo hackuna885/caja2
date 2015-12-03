@@ -15,17 +15,17 @@ $con -> close();
 
 
 if ($bus['encont'] == 0) {
-	$resBus = "No tengo resultados";
+	echo '<h3>No tengo resultados!</h3>';
 }else{
 
-	if ($bus['fUsado'] == 0) {
-		$resBus = "Folio Encontrado, No Usado!";
-	}else{
-		if ($bus['fEntregado'] == 0) {
+	switch ($bus['fEntregado']) {
+		case 0:
 
+		if ($bus['fUsado'] == 0) {
+			echo '<h3>Folio Encontrado, No Usado!</h3>';
+		}else{
 			if ($bus['fStatus'] == 1) {
-			$resBus = 'Pagado
-
+				echo '<h3>Pagado</h3>
 			<br>
 			<br>
 			<form action="actEntrega.php" method="post">
@@ -44,7 +44,7 @@ if ($bus['encont'] == 0) {
 
 				$con -> close();
 
-				$resBus = 'Restan: $'.$cantidadRest.'
+				echo 'Restan: $'.$cantidadRest.'
 
 				<br>
 				<br>
@@ -61,26 +61,17 @@ if ($bus['encont'] == 0) {
 					';
 				
 			}
-		}else{
-			$resBus = "Prenda Entregada!";
 		}
-
+			
+			break;
+		case 1:	
+			echo '<h3>Prenda Entregada!</h3>';
+			break;
+		case 2:
+			echo '<h3>Folio CANCELADO!</h3>';
+			break;
 	}
 
 }
 
  ?>
-
- <!DOCTYPE html>
- <html lang="es">
- <head>
- 	<meta charset="UTF-8">
- 	<title>Busqueda de Ticket</title>
- </head>
- <body>
- 	<h3>Estatus de Ticket:</h3>
- 	<br>
- 	<p><?php echo $resBus; ?></p>
-	
- </body>
- </html>
