@@ -7,6 +7,8 @@ header("Content-Type: text/html; Charset=UTF-8");
 date_default_timezone_set('America/Mexico_City');
 $fechaRegCap = date("Y-m-d" . " " . "g:i a");
 
+$_SESSION['montoExpress'] = 1;
+
  ?>
 
 
@@ -40,6 +42,26 @@ $fechaRegCap = date("Y-m-d" . " " . "g:i a");
 	}
 	</script>
 
+	</script>
+		<script>
+	function ejecutarExpress(str){
+		var express;
+		if (window.XMLHttpRequest) {
+			express = new XMLHttpRequest();
+		}else{
+			express = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+
+		express.onreadystatechange=function(){
+			if (express.readyState==4 && express.status==200) {
+				document.getElementById("areaExpress").innerHTML = express.responseText;
+			}
+		}
+		express.open("GET","express.php?varExpress=" + str, true);
+		express.send();
+	}
+	</script>
+
  	<?php include("../../include/style.inc"); ?>
  	<link rel="stylesheet" href="../../css/pTicket.css">
  	<title>Lavado</title>
@@ -56,15 +78,23 @@ $fechaRegCap = date("Y-m-d" . " " . "g:i a");
 		</div>
 		<br>
 		<div class="cIzqUno">
+
+			<form action="insertLavado.php" method="post">
 			<br>
 			<h2>Kilos de Ropa</h2>
 			<br>
-			<input class="inRegC" type="tel" id="txtKgRopa" name="txtKgRopa" placeholder="Cuantos Kg?" onkeyup="calculaRopa()" maxlength="3" autofocus/>
+			<input class="inRegC" type="tel" id="txtKgRopa" name="txtKgRopa" placeholder="Cuantos Kg?" onkeyup="calculaRopa()" maxlength="2" autofocus/>
 			<br>
 			<br>
-			<input class="btnAct" id="ticket" type="submit" value="Agregar a Caja" onclick="" />
-		</div>
-		<div class="cDerUno" id="midiv">
+			<div id="areaExpress" class="areaExpress2">
+			<input type="checkbox" name="express" value="1" onclick="ejecutarExpress(this.value)"/>Express
+			</div>
+			<br>
+			<input class="btnAct" id="ticket" type="submit" value="Agregar a Caja"/>
+			</div>
+			</form>
+
+			<div class="cDerUno" id="midiv">
 			<img src="../../css/img/Lavado.png" alt="">
 			<br>
 			<br>

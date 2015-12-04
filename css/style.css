@@ -298,3 +298,12 @@ input, .miniText[type=text]{
 	margin-top: -53px;
 	margin-left: 380px;
 }
+.areaExpress2{
+	font-family: "Gotham-Bold";
+	color: #003366;
+	font-style: italic;
+	line-height: 42px;
+	font-size: 30px;
+	height: 42px;
+	padding: 0px 35px 0px 0px;
+}
