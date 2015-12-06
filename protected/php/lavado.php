@@ -57,7 +57,7 @@ $_SESSION['montoExpress'] = 1;
 				document.getElementById("areaExpress").innerHTML = express.responseText;
 			}
 		}
-		express.open("GET","express.php?varExpress=" + str, true);
+		express.open("GET","expressL.php?varExpress=" + str, true);
 		express.send();
 	}
 	</script>
@@ -83,11 +83,11 @@ $_SESSION['montoExpress'] = 1;
 			<br>
 			<h2>Kilos de Ropa</h2>
 			<br>
-			<input class="inRegC" type="tel" id="txtKgRopa" name="txtKgRopa" placeholder="Cuantos Kg?" onkeyup="calculaRopa()" maxlength="2" autofocus/>
+			<input class="inRegC" type="tel" id="txtKgRopa" name="txtKgRopa" placeholder="Cuantos Kg?" onkeyup="calculaRopa()" maxlength="5" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" autofocus/>
 			<br>
 			<br>
 			<div id="areaExpress" class="areaExpress2">
-			<input type="checkbox" name="express" value="1" onclick="ejecutarExpress(this.value)"/>Express
+			<input type="checkbox" name="express" value="1" onclick="ejecutarExpress(this.value); alert('Express!'); calculaRopa()" />Express
 			</div>
 			<br>
 			<input class="btnAct" id="ticket" type="submit" value="Agregar a Caja"/>

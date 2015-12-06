@@ -46,7 +46,7 @@ $_SESSION['idPrenda'] = $idPrenda;
 			
 			<tr>
 		 		<td class="tabDer">'.$res[1].'</td>
-		 		<td>$<input type="tel" name="txtImport" class="inImp" value="'.$res[2].'" min="1" max="999" maxlength="3" autofocus/></td>
+		 		<td>$<input type="tel" name="txtImport" class="inImp" value="'.$res[2].'" min="1" max="999" maxlength="3" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" autofocus/></td>
 		 		
 
 			';

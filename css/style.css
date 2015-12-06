@@ -71,9 +71,9 @@ td{
 	line-height: 120px;
 }
 nav a{
-	margin: 0px 10px 0px 10px;
+	margin: 0px 8px 0px 8px;
 	color: #003366;
-	font-size: 20px;
+	font-size: 18px;
 	font-family: "Gotham-Bold";
 }
 a{
@@ -207,8 +207,8 @@ a{
 	width: 60px;
 }
 .p4{
-	width: 110px;
-	font-size: 12px;	
+	width: 70px;
+	font-size: 12px;
 }
 .p5{
 	width: 110px;
@@ -306,4 +306,20 @@ input, .miniText[type=text]{
 	font-size: 30px;
 	height: 42px;
 	padding: 0px 35px 0px 0px;
+}
+.areaVapor{
+	font-family: "Gotham-Bold";
+	color: #003366;
+	line-height: 42px;
+	font-size: 20px;
+	height: 42px;
+	padding: 0px 25px 0px 0px;
+}
+.areaGancho{
+	font-family: "Gotham-Bold";
+	color: #003366;
+	line-height: 42px;
+	font-size: 20px;
+	height: 42px;
+	padding: 0px 25px 0px 0px;
 }

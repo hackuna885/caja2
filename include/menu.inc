@@ -5,6 +5,7 @@ if ($_SESSION['permisos'] == 1) {
 					<a href="caja.php">Caja</a>
 					<a href="entrega.php">Entrega</a>
 					<a href="lavado.php">Lavado</a>
+					<a href="planchado.php">Planchado</a>
 					<a href="catalogos.php">Catálogos</a>
 					<a href="reportes.php">Reportes</a>
 					<a href="cancelar.php">Cancelar</a>
@@ -16,6 +17,7 @@ if ($_SESSION['permisos'] == 1) {
 					<a href="caja.php">Caja</a>
 					<a href="entrega.php">Entrega</a>
 					<a href="lavado.php">Lavado</a>
+					<a href="planchado.php">Planchado</a>
 					<a href="#">Catálogos</a>
 					<a href="#">Reportes</a>
 					<a href="#">Cancelar</a>

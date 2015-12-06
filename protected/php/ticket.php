@@ -194,10 +194,10 @@ if (isset($_POST['btn1'])) {
 			<form action="impTick.php" method="post">
 				<p class="cajaBold">Total a pagar: $<?php echo $impTotal; ?></p>
 				<br>
-				<input class="inRegC" type="tel" id="importe" name="txtImpRec" placeholder="Importe Recibido $$$.." onkeyup="ejecutarAjax()" required  maxlength="4" autofocus/>
+				<input class="inRegC" type="tel" id="importe" name="txtImpRec" placeholder="Importe Recibido $$$.." onkeyup="ejecutarAjax()" required  maxlength="4" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" autofocus/>
 				<br>
 				<br>
-				<input class="inRegC" type="tel" id="acuenta" name="txtACuent" placeholder="A cuenta $$$.." onkeyup="ejecutarAjax()" maxlength="4"/>
+				<input class="inRegC" type="tel" id="acuenta" name="txtACuent" placeholder="A cuenta $$$.." onkeyup="ejecutarAjax()" maxlength="4" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"/>
 				<br>
 				<br>
 				<div id="resCambio" class="cajaBold">
