@@ -30,7 +30,7 @@ if (isset($piezas) && !empty($piezas)) {
 		$fUsado = $resFolio[2];
 	$con -> close();
 
-	$monto = ($piezas * ($rs['importe'] + $_SESSION['ganchoR'])) * $_SESSION['montoExpress'];
+	$monto = (($piezas * $rs['importe']) * $_SESSION['montoExpress']) + $_SESSION['ganchoR'];
 
 	if ($count == 0) {
 		if ($countF == 0) {
@@ -100,7 +100,7 @@ if (isset($piezas) && !empty($piezas)) {
 		$fUsado = $resFolio[2];
 	$con -> close();
 
-	$monto = ($piezas * ($rs['importe'] + $_SESSION['ganchoR'])) * $_SESSION['montoExpress'];
+	$monto = (($piezas * $rs['importe']) * $_SESSION['montoExpress']) + $_SESSION['ganchoR'];
 
 	if ($count == 0) {
 		if ($countF == 0) {

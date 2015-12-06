@@ -13,7 +13,7 @@ $cs = $con -> query("SELECT * FROM catPrendas WHERE prenda = 'Planchado Norm'");
 $rs = $cs -> fetchArray();
 $con -> close();
 
-$monto = ($piezas * ($rs['importe'] + $_SESSION['pVapor'] + $_SESSION['ganchoR'])) * $_SESSION['montoExpress'];
+$monto = (($piezas * ($rs['importe'] + $_SESSION['pVapor'])) * $_SESSION['montoExpress']) + $_SESSION['ganchoR'];
 
 
 echo '<img src="../../css/img/PlanchadoVapor.png" alt="">
@@ -32,7 +32,7 @@ $cs = $con -> query("SELECT * FROM catPrendas WHERE prenda = 'Planchado Norm'");
 $rs = $cs -> fetchArray();
 $con -> close();
 
-$monto = ($piezas * ($rs['importe'] + $_SESSION['pVapor'] + $_SESSION['ganchoR'])) * $_SESSION['montoExpress'];
+$monto = (($piezas * ($rs['importe'] + $_SESSION['pVapor'])) * $_SESSION['montoExpress']) + $_SESSION['ganchoR'];
 
 
 echo '<img src="../../css/img/PlanchadoNormal.png" alt="">

@@ -42,6 +42,14 @@ date_default_timezone_set('America/Mexico_City');
 				</div>
 			</div>
 			<div class="cBusDos">
+				<select name="optReport" id="" class="optReport">
+					<option value="">Normal</option>
+					<option value="P">Pendientes</option>
+					<option value="L">Liquidados</option>
+					<option value="C">Cancelados</option>
+				</select>
+				<br>
+				<br>
 				<input type="submit" class="btnBusRep" value="Buscar"/>
 			</div>
 			</form>

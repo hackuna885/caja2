@@ -93,8 +93,8 @@ $_SESSION['montoExpress'] = 1;
 		<button class="btnCuadro" id="btn8" type="button" onclick="ejecutarAjax('Chamarra Pluma')"><p id="txtL">Chamarra Pluma</p></button>
 		<button class="btnCuadro" id="btn9" type="button" onclick="ejecutarAjax('Colcha I')"><p>Colcha I</p></button>
 		<button class="btnCuadro" id="btn9" type="button" onclick="ejecutarAjax('Colcha K')"><p>Colcha K</p></button>
-		<br>
 		<button class="btnCuadro" id="btn9" type="button" onclick="ejecutarAjax('Colcha M')"><p>Colcha M</p></button>
+		<br>
 		<button class="btnCuadro" id="btn9" type="button" onclick="ejecutarAjax('Colcha Q')"><p>Colcha Q</p></button>
 		<button class="btnCuadro" id="btn10" type="button" onclick="ejecutarAjax('Corbata')"><p>Corbata</p></button>
 		<button class="btnCuadro" id="btn11" type="button" onclick="ejecutarAjax('Cortina')"><p>Cortina</p></button>
@@ -106,9 +106,13 @@ $_SESSION['montoExpress'] = 1;
 		<button class="btnCuadro" id="btn14" type="button" onclick="ejecutarAjax('Gabardina 3/4')"><p>Gabardina 3/4</p></button>
 		<button class="btnCuadro" id="btn14" type="button" onclick="ejecutarAjax('Gabardina Ch')"><p>Gabardina Ch</p></button>
 		<button class="btnCuadro" id="btn14" type="button" onclick="ejecutarAjax('Gabardina L')"><p>Gabardina L</p></button>
-		<br>
+		<button class="btnCuadro" id="btn31" type="button" onclick="ejecutarAjax('Gancho')"><p>Gancho</p></button>
 		<button class="btnCuadro" id="btn17" type="button" onclick="ejecutarAjax('Mantel')"><p>Mantel</p></button>
+		<br>
+		
 		<button class="btnCuadro" id="btn18" type="button" onclick="ejecutarAjax('Otros')"><p>Otros</p></button>
+		<button class="btnCuadro" id="btn18" type="button" onclick="ejecutarAjax('Otros.')"><p>Otros 1</p></button>
+		<button class="btnCuadro" id="btn18" type="button" onclick="ejecutarAjax('Otros..')"><p>Otros 2</p></button>
 		<button class="btnCuadro" id="btn19" type="button" onclick="ejecutarAjax('Pantalón')"><p>Pantalón</p></button>
 		<button class="btnCuadro" id="btn20" type="button" onclick="ejecutarAjax('Planchado Norm')"><p>Planchado N</p></button>
 		<button class="btnCuadro" id="btn21" type="button" onclick="ejecutarAjax('Planchado Vapor')"><p>Planchado V</p></button>

@@ -4,13 +4,9 @@ session_start();
 error_reporting(E_ALL ^ E_DEPRECATED);
 header("Content-Type: text/html; Charset=UTF-8");
 
-$fechaIni = $_POST['txtFechaIni'];
-$fechaFin = $_POST['txtFechaFin'];
-$optReport = $_POST['optReport'];
-
-$_SESSION['varFechaIni'] = $fechaIni;
-$_SESSION['varFechaFin'] = $fechaFin;
-$_SESSION['varOptReport'] = $optReport;
+$fechaIni = $_SESSION['varFechaIni'];
+$fechaFin = $_SESSION['varFechaFin'];
+$optReport = $_SESSION['varOptReport'];
 
 if ($fechaFin >= $fechaIni) {
 
@@ -31,8 +27,8 @@ if ($fechaFin >= $fechaIni) {
  <html lang="es">
  <head>
  	<meta charset="UTF-8">
- 	<link rel="stylesheet" href="../../css/impTick.css">
-	<link rel="stylesheet" href="../../css/impTick2.css" media="print">
+ 	<link rel="stylesheet" href="../../css/impTickC.css">
+	<link rel="stylesheet" href="../../css/impTickC2.css" media="print">
  	<title>Corte del Día: </title>
  </head>
  <body>
@@ -44,14 +40,14 @@ if ($fechaFin >= $fechaIni) {
 				Mariano Escobedo #20 Col. Zaragoza C.P. 54457. Nicolás Romero. Edo-Méx. Tel: 1660-3794
 			</p>
 			<br>
-			<p>"Corte de caja: <?php echo $fechaIni. ' al ' .$fechaFin; ?>"</p>
+			<p>"Corte de caja: <span class="Enc"><?php echo $fechaIni. '</span> al <span class="Enc">' .$fechaFin; ?></span>" </p>
 			<br>
  	<table class="centTab">
  		<tr>
- 			<td>Folio</td>
- 			<td>Fecha</td>
- 			<td>Estatus</td>
- 			<td>Monto</td>
+ 			<td class="Enc">Folio</td>
+ 			<td class="Enc">Fecha</td>
+ 			<td class="Enc">Estatus</td>
+ 			<td class="Enc">Monto</td>
  		</tr>
  		
  			<?php 
@@ -59,10 +55,10 @@ if ($fechaFin >= $fechaIni) {
 
  					echo '
  					<tr>
-					<td>'.$res['histTFolio'].'</td>
-		 			<td>'.$res['histTFechaTick'].'</td>
-		 			<td>'.$res['histTEstatus'].'</td>
-		 			<td>$'.$res['histTTotalEntr'].'</td>
+					<td class="tTab">'.$res['histTFolio'].'</td>
+		 			<td class="tTab">'.$res['histTFechaTick'].'</td>
+		 			<td class="tTab">'.$res['histTEstatus'].'</td>
+		 			<td class="tTab">$'.$res['histTTotalEntr'].'</td>
 		 			</tr>
  					';
 				}
@@ -71,8 +67,8 @@ if ($fechaFin >= $fechaIni) {
 					<tr>
 			 			<td></td>
 			 			<td></td>
-			 			<td>Total: </td>
-			 			<td>$'.$res2['impTotal'].'</td>
+			 			<td class="Enc">Total: </td>
+			 			<td class="Enc">$'.$res2['impTotal'].'</td>
 			 		</tr>
 					';
 				$con -> close();
@@ -80,9 +76,7 @@ if ($fechaFin >= $fechaIni) {
  	</table>
 	 	</div>
 	 	<div class="botonera">
-		<input class="btnAct" id="ticket" type='button' onclick='window.print();' value='Imprimir Ticket' />
-		<br>
-		<a href="busReporteC.php"><button  class="btnAct" id="ticket" type='button'>Imprimir Carta</button></a>
+		<input class="btnAct" id="ticket" type='button' onclick='window.print();' value='Re-Imprimir Carta' />
 		<br>
 		<button type="button" class="btnAct" id="cancel" onclick="window.location='reportes.php'">Regresar..</button>
 	</div>
